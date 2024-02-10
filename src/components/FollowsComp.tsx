@@ -1,7 +1,5 @@
 import { Box, Card, Flex, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import DftrFollowers from './dftrFollowers'
 
 const FollowsComp: React.FC = () => {
   return (

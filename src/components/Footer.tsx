@@ -11,7 +11,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div>
-        <Card w='350px' borderRadius='20px' mx={"auto"} mt={2} p={3}>
+        <Card w='100%' borderRadius='20px' mx={"2"} mt={2} p={3}>
             <Flex gap={2}>
                 <Text>
                     Developed by San · 

@@ -15,9 +15,11 @@ const SideBar :React.FC = () => {
 
   return (
     <>
-    <Flex  direction='column'  height='100vh' mr={2} position={'fixed'} >
-      <Box >
-        <Heading color='#482AE3' ml={4} p={4}>Toa</Heading>
+    <Flex  direction='column'  bg={'red'} height='100vh' mr={2} position={'fixed'} >
+      <Box>
+        <NavLink to={'/'}>
+          <Heading color='#482AE3'  ml={4} p={4}>Toa</Heading>
+        </NavLink>
           <NavLink to={'/'}>
             <Flex pl={4} >
                 <Button bg='#EAECEF'><BiSolidHomeAlt2 size={25} /></Button>
@@ -40,7 +42,7 @@ const SideBar :React.FC = () => {
           <Button bg='#EAECEF'><CgProfile size={25}/></Button>
           <Text _hover={{ color: 'gray'}} fontWeight='600' alignItems='center' mt={2}>Profile</Text>
         </Flex>
-          <Button  mt={2} ml={6} rounded={15} color={'white'} bg='#482AE3'>Creat Post</Button>
+          <Button  mt={2} mx={2} w={'full'} rounded={15} color={'white'} bg='#482AE3'>Creat Post</Button>
       </Box>
 
         <Spacer/>

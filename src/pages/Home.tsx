@@ -13,16 +13,16 @@ import Suggest from '../components/Suggest';
 const Home : React.FC = () => {
   return (
     <>
-        <Flex w='full' bg='#EAECEF'>
-            <Box w={{base:'100%',lg:'22rem',xl:'26rem'}} >
+        <Flex w='100%' bg='#EAECEF'>
+            <Box w={{base:'100%',lg:'22rem',xl:'20%'}} bg={"red"} >
                 <SideBar/>
             </Box>
            <Flex flexWrap={'wrap'}>
-           <Box w={{base:'100%',lg:'65%',xl:'50%'}}>
+           <Box w={{base:'100%',lg:'65%',xl:'55%'}} mt={4}  bg={'orange'}>
                 <Header/>
                 <Cards/>
             </Box>
-            <Box w={{base:'100%',lg:'35%',xl:'40%'}}>
+            <Box w={{base:'100%',lg:'30%',xl:'40%'}} mt={4} bg={'green'}>
                 <Profile />
                 <Suggest/>
                 <Footer/>

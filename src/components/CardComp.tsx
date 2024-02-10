@@ -48,18 +48,21 @@ const CardComp : React.FC<Data> = (props) => {
                     </Icon>
                     <Text color='gray'>{jam}</Text>
                 </Flex>
-                <Text>
-                    {description}
-                </Text>
-                <Flex gap={5}>
-                    <Button bg='white' onClick={handlelike} ><AiOutlineHeart size={25} color={liked ? 'red' : 'gray' }/>
-                    <Text ml={2} color='gray'>
-                        {likes}
+                <NavLink to={'/status'}>
+                    <Text>
+                        {description}
                     </Text>
+                </NavLink>
+                <Flex gap={5}>
+                    <Button bg='white' onClick={handlelike} >
+                        <AiOutlineHeart size={25} color={liked ? 'red' : 'gray' }/>
+                        <Text ml={2} color='gray'>
+                            {likes}
+                        </Text>
                     </Button>
-                    <NavLink to={'/status'}>
-                        <Button bg='white'><MdOutlineInsertComment size={25} color='gray'/></Button>
-                    </NavLink>
+                    <Button bg='white'>
+                        <MdOutlineInsertComment size={25} color='gray'/>
+                    </Button>
                 </Flex>
                 </Box>
             </Flex>

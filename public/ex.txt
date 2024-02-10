@@ -1,0 +1,44 @@
+Muhammad Rayhanul Ihsan
+mrayhanulihsan@gmail.com
+
+import React, { useState, useEffect } from 'react';
+
+const App: React.FC = () => {
+  // State untuk menyimpan data dummy
+  const [dummyData, setDummyData] = useState<any[]>([]);
+
+  // Fungsi untuk mengambil data dummy (contoh penggunaan useEffect)
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Pengambilan data dummy dari JSON lokal
+        const response = await fetch('/data.json');
+        const data = await response.json();
+        setDummyData(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    // Panggil fungsi fetchData saat komponen dimount
+    fetchData();
+
+    // Bersihkan efek (cleanup) jika diperlukan
+    return () => {
+      // Misalnya, berhenti langganan atau membersihkan event listener
+    };
+  }, []); // Gunakan array kosong agar efek ini hanya dijalankan sekali saat komponen dimount
+
+  return (
+    <div>
+      <h1>Data Dummy:</h1>
+      <ul>
+        {dummyData.map((item: any, index: number) => (
+          <li key={index}>{item.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default App;

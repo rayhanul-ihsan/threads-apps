@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Avatar,  Button,   Card,   Flex, Heading, Text} from '@chakra-ui/react'
+import { color } from 'framer-motion';
  
 const Suggest: React.FC = () => {
+
+    const [foll, setFoll] = useState<boolean>(false);
+
+    const handleFollow = () => {
+        if (!foll){
+            setFoll(true)
+        }else{
+            setFoll(false)
+        }
+    }
+
   return (
     <>
         <Card 
-            mx={"auto"}
+            mx={"2"}
             borderRadius='20px'
-            w={{ base: "345px", md: "350px" }}>
+            w='100%'>
         <Heading fontSize='15px' m={2}>Suggested for you</Heading>
             <Flex gap={1} p={2} justifyContent='space-between' alignItems={"center"}>
                 <Flex alignItems={"center"} gap={1}>
@@ -25,8 +37,9 @@ const Suggest: React.FC = () => {
                     borderColor={"gray"}
                     bg={"white"}
                     alignItems='center'
-                    textColor={"gray"}>
-                    Following
+                    textColor={"gray"}
+                    onClick={handleFollow}>
+                    {foll ? 'Following' : 'Follow'}
                 </Button>
             </Flex>
             <Flex gap={1} p={2} justifyContent='space-between' alignItems={"center"}>

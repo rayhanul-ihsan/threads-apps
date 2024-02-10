@@ -17,10 +17,10 @@ const DetailSearch : React.FC = () => {
                 <SideBar/>
             </Box>
            <Flex flexWrap={'wrap'}>
-           <Box w={{base:'100%',lg:'65%',xl:'50%'}}>
+           <Box w={{base:'100%',lg:'65%',xl:'60%'}} mt={4}>
                 <Search/>  
             </Box>
-            <Box w={{base:'100%',lg:'35%',xl:'40%'}}>
+            <Box w={{base:'100%',lg:'35%',xl:'40%'}} mt={4}>
                 <Profile />
                 <Suggest/>
                 <Footer/>

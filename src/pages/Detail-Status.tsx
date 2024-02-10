@@ -6,6 +6,7 @@ import Profile from '../components/Profile';
 import Footer from '../components/Footer';
 import Suggest from '../components/Suggest';
 import Status from '../components/Status';
+import Coment from '../components/Coment';
 
 
 
@@ -17,10 +18,11 @@ const DetailStatus : React.FC = () => {
                 <SideBar/>
             </Box>
            <Flex flexWrap={'wrap'}>
-           <Box w={{base:'100%',lg:'65%',xl:'50%'}}>
+           <Box w={{base:'100%',lg:'65%',xl:'50%'}} mt={4}>
                 <Status/>  
+                <Coment/>
             </Box>
-            <Box w={{base:'100%',lg:'35%',xl:'40%'}}>
+            <Box w={{base:'100%',lg:'35%',xl:'40%'}} mt={4}>
                 <Profile />
                 <Suggest/>
                 <Footer/>

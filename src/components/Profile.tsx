@@ -10,13 +10,13 @@ const Profile:React.FC =() => {
 
   return (
     <Card
-      mx={"auto"}
+      mx={"2"}
       my={2} 
       borderRadius='20px'
       bg={boxBg}
-      p='5px'
+      // p='5px'
       h='310px'
-      w={{ base: "345px", md: "350px" }}>
+      w='100%'>
 
         <Text
           fontWeight='500'
@@ -26,11 +26,13 @@ const Profile:React.FC =() => {
         </Text>
     <Flex
       direction='column'
-      alignItems='center'>
+      alignItems='center'
+      mx={2}>
       <Image
         src='https://i.ibb.co/xmP2pS6/Profile.png'
         maxW='100%'
         borderRadius='20px'
+        
       />
       <Flex justify='space-between' w='full' p={3} >
         <Image
@@ -55,13 +57,13 @@ const Profile:React.FC =() => {
       </Button>
       </Flex>
       <Flex flexDirection='column' >
-        <Text fontWeight='600'>
+        <Text fontWeight='700'>
           Padli parkoso
         </Text>
-        <Text fontSize='9px'  textColor='GrayText'>
+        <Text fontSize='9px' fontWeight={'500'} textColor='GrayText'>
           @padliparkoso
         </Text>
-        <Text fontSize='12px'  fontWeight='450'>
+        <Text fontSize='12px'  fontWeight='400'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
         </Text>
       </Flex>
