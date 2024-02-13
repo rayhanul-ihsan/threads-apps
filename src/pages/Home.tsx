@@ -14,15 +14,15 @@ const Home : React.FC = () => {
   return (
     <>
         <Flex w='100%' bg='#EAECEF'>
-            <Box w={{base:'100%',lg:'22rem',xl:'20%'}} bg={"red"} >
+            <Box w={{base:'100%',lg:'none',xl:'250px'}}>
                 <SideBar/>
             </Box>
            <Flex flexWrap={'wrap'}>
-           <Box w={{base:'100%',lg:'65%',xl:'55%'}} mt={4}  bg={'orange'}>
+           <Box w={{base:'100%',lg:'65%',xl:'700px'}} mt={4}  >
                 <Header/>
                 <Cards/>
             </Box>
-            <Box w={{base:'100%',lg:'30%',xl:'40%'}} mt={4} bg={'green'}>
+            <Box w={{base:'100%',lg:'30%',xl:'30%'}} mt={4} >
                 <Profile />
                 <Suggest/>
                 <Footer/>

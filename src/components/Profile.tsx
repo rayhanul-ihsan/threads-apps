@@ -1,7 +1,7 @@
 
 import React from "react";
 // Chakra imports
-import { Button, Card, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Card, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
 
 const Profile:React.FC =() => {
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
@@ -30,7 +30,9 @@ const Profile:React.FC =() => {
       mx={2}>
       <Image
         src='https://i.ibb.co/xmP2pS6/Profile.png'
-        maxW='100%'
+        // maxW='100%'
+        w={'100%'}
+        h={'30%'}
         borderRadius='20px'
         
       />
@@ -56,17 +58,17 @@ const Profile:React.FC =() => {
         Edit Profile
       </Button>
       </Flex>
-      <Flex flexDirection='column' >
-        <Text fontWeight='700'>
+      <Box mb={4} textAlign={'left'} w={'100%'} >
+        <Text textAlign={'left'}  fontWeight='700'>
           Padli parkoso
         </Text>
-        <Text fontSize='9px' fontWeight={'500'} textColor='GrayText'>
+        <Text textAlign={'left'}  fontSize='10px' fontWeight={'500'} textColor='GrayText'>
           @padliparkoso
         </Text>
-        <Text fontSize='12px'  fontWeight='400'>
+        <Text textAlign={'left'}  fontSize='12px'  fontWeight='600'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
         </Text>
-      </Flex>
+      </Box>
       <Flex gap={2} w='100%' px='20px'>
         <Flex gap={1} >
           <Text

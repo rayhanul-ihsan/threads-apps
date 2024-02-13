@@ -62,7 +62,7 @@ const Status: React.FC = () => {
                       <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
                       <Input placeholder='Type your reply!' />
                       <Button _hover={{bg: 'white'}} rounded={15} bg='white'><LuImagePlus size={30} color='#482AE3' /></Button>
-                      <Button rounded={20} color='white' bg='#482AE3' >Reply</Button>
+                      <Button _hover={{bg:'#6178D6', color:'black'}} rounded={20} color='white' bg='#482AE3' >Reply</Button>
                   </Flex>
                 </Box>
         </Card>

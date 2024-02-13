@@ -1,9 +1,9 @@
-import { Avatar, Box, Button, Card,  Flex, Heading, Text, Icon } from '@chakra-ui/react'
+import { Avatar, Box, Button, Card,  Flex, Heading, Text, Icon, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, ModalFooter } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { MdOutlineInsertComment } from "react-icons/md";
 import { AiOutlineHeart } from "react-icons/ai";
 import { NavLink } from 'react-router-dom';
-import SideBar from './SideBar';
+import { LuImagePlus } from 'react-icons/lu';
 
 
 
@@ -19,6 +19,9 @@ interface Data  {
 const CardComp : React.FC<Data> = (props) => {
     const {id, name, username, description, like, jam} = props
 
+    const { isOpen, onOpen, onClose  } = useDisclosure()
+
+
         const [likes, setLikes] = useState<number>(0);
         const [liked, setLiked] = useState<boolean>(false);
 
@@ -33,14 +36,14 @@ const CardComp : React.FC<Data> = (props) => {
 
   return (
     <>
-        <Card mt={2} p={2}>
+        <Card mt={2} p={2} w={'100%'}>
             <Flex gap={4}>
                 <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
                 <Box>
                 <Flex alignItems='center' gap={1}>
                     <Heading size='m'>{name}</Heading>
                     <Text>{username}</Text>
-                    <Icon boxSize={2.5} mt={1} viewBox='0 0 200 200' color='gray.500'>
+                    <Icon boxSize={1.5} mt={1} viewBox='0 0 200 200' color='gray.500'>
                     <path
                         fill='currentColor'
                         d='M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0'
@@ -49,7 +52,7 @@ const CardComp : React.FC<Data> = (props) => {
                     <Text color='gray'>{jam}</Text>
                 </Flex>
                 <NavLink to={'/status'}>
-                    <Text>
+                    <Text textAlign={'justify'}>
                         {description}
                     </Text>
                 </NavLink>
@@ -60,13 +63,37 @@ const CardComp : React.FC<Data> = (props) => {
                             {likes}
                         </Text>
                     </Button>
-                    <Button bg='white'>
+                    {/* <NavLink to={'/reply'}>
+                    </NavLink> */}
+                    <Button onClick={onOpen} bg='white'>
                         <MdOutlineInsertComment size={25} color='gray'/>
                     </Button>
                 </Flex>
                 </Box>
             </Flex>
         </Card>
+        <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader></ModalHeader>
+          <ModalCloseButton />
+          <ModalBody my={2}>
+            <Flex>
+            <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
+            <Input variant='flushed' placeholder='What is happening?!' />
+            </Flex>    
+          </ModalBody>
+
+          <ModalFooter justifyContent={'space-between'}>
+                <Button _hover={{bg:'white'}} rounded={15} bg='#ffff'>
+                <LuImagePlus size={30} color='#482AE3' />
+                </Button>
+                <Button _hover={{bg:'#6178D6', color:'black'}} rounded={20} color='white' bg='#482AE3' >
+                Post
+                </Button> 
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   )
 }
