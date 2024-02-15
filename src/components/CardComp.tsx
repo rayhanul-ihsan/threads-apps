@@ -1,9 +1,9 @@
-import { Avatar, Box, Button, Card,  Flex, Heading, Text, Icon, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, ModalFooter } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import { MdOutlineInsertComment } from "react-icons/md";
-import { AiOutlineHeart } from "react-icons/ai";
 import { NavLink } from 'react-router-dom';
 import { LuImagePlus } from 'react-icons/lu';
+import { AiOutlineHeart } from "react-icons/ai";
+import { MdOutlineInsertComment } from "react-icons/md";
+import { Avatar, Box, Button, Card,  Flex, Heading, Text, Icon, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, ModalFooter } from '@chakra-ui/react'
 
 
 

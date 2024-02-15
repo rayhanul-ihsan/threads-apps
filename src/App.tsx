@@ -8,8 +8,8 @@ import RegisterPage from "./pages/RegisterPage"
 import DetailStatus from "./pages/Detail-Status"
 import Follows from "./pages/Follows"
 import DetailSearch from "./pages/Detail-Search"
-import DftrFollowers from "./components/dftrFollowers"
 import Reply from "./components/Reply"
+import DetailProfile from "./pages/Detail-Profile"
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         <Route path="/Follows" element={<Follows/>}/>
         <Route path="/search" element={<DetailSearch/>}/> 
         <Route path="/reply" element={<Reply/>}/> 
+        <Route path="/detail-profile" element={<DetailProfile/>}/> 
         {/* <Route path="/dftr-followers" element={<DftrFollowers/>}/> */}
       </Routes>
     </>

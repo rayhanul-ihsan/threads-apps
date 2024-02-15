@@ -1,34 +1,18 @@
-import { Box, Flex} from '@chakra-ui/react'
 import React from 'react'
 
-import SideBar from '../components/SideBar';
-import Profile from '../components/Profile';
-import Footer from '../components/Footer';
-import Suggest from '../components/Suggest';
 import FollowsComp from '../components/FollowsComp';
-import DftrFollowers from '../components/dftrFollowers';
+import DftrFollowers from '../components/DftrFollowers';
+import Layout from '../Layout';
 
 
 
 const Follows : React.FC = () => {
   return (
     <>
-        <Flex w='full' bg='#EAECEF'>
-            <Box w={{base:'10rem',lg:'20%',xl:'20%'}} >
-                <SideBar/>
-            </Box>
-           <Flex flexWrap={'wrap'}>
-           <Box w={{base:'100%',lg:'60%',xl:'60%'}} mt={6}>
-                <FollowsComp/>
-                <DftrFollowers/>
-            </Box>
-            <Box w={{base:'100%',lg:'30%',xl:'30%'}} mt={4}>
-                <Profile />
-                <Suggest/>
-                <Footer/>
-            </Box>
-           </Flex>
-        </Flex>
+      <Layout>
+        <FollowsComp/>
+        <DftrFollowers/>
+      </Layout>
     </>
   )
 }

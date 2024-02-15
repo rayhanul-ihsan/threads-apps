@@ -7,28 +7,17 @@ import Footer from '../components/Footer';
 import Suggest from '../components/Suggest';
 import Status from '../components/Status';
 import Coment from '../components/Coment';
+import Layout from '../layout';
 
 
 
 const DetailStatus : React.FC = () => {
   return (
     <>
-        <Flex w='full' bg='#EAECEF'>
-            <Box w={{base:'10rem',lg:'22rem',xl:'26rem'}} >
-                <SideBar/>
-            </Box>
-           <Flex flexWrap={'wrap'}>
-           <Box w={{base:'100%',lg:'65%',xl:'50%'}} mt={4}>
-                <Status/>  
-                <Coment/>
-            </Box>
-            <Box w={{base:'100%',lg:'35%',xl:'40%'}} mt={4}>
-                <Profile />
-                <Suggest/>
-                <Footer/>
-            </Box>
-           </Flex>
-        </Flex>
+      <Layout>
+        <Status/>  
+        <Coment/>
+      </Layout>
     </>
   )
 }

@@ -19,7 +19,7 @@ const DaftarFollowers: React.FC<Followers> = (props) => {
     }
   return (
     <>
-    <Card p={1} my={2} w={500}>
+    <Card p={1} my={2} w={"100%"}>
         <Flex gap={1} p={2} justifyContent='space-between' alignItems={"center"}>
             <Flex alignItems={"center"} gap={1}>
                 <Avatar name='gatot' src={avatar}/>

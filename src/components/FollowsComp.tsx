@@ -5,7 +5,7 @@ const FollowsComp: React.FC = () => {
   return (
     <>
       <Box>
-        <Card p={2} w={500}>
+        <Card p={2} w={'100%'}>
          <Heading  fontSize='23px' gap={2} mb={6} >
             Follows
          </Heading>

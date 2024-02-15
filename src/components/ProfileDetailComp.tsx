@@ -1,23 +1,37 @@
 
-import React from "react";
+import React, { useState } from "react";
 // Chakra imports
-import { Box, Button, Card, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { Avatar, Box, Button, Card, Flex, Heading, Icon, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
+import { AiOutlineHeart } from "react-icons/ai";
+import { MdOutlineInsertComment } from "react-icons/md";
 
-const Profile:React.FC =() => {
+const ProfileDetailComp:React.FC =() => {
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
   let mainText = useColorModeValue("gray.800", "white");
   let secondaryText = useColorModeValue("gray.400", "gray.400");
 
-  return (
-    <Card
-      mx={"2"}
-      my={2} 
-      borderRadius='15px'
-      bg={boxBg}
-      // p='5px'
-      h='310px'
-      w='100%'>
+  const [likes, setLikes] = useState<number>(0);
+  const [liked, setLiked] = useState<boolean>(false);
 
+        const handlelike = () => {
+            if (!liked) {
+                setLikes(likes + 1)
+            } else{
+                setLikes(likes - 1)
+            }
+            setLiked(!liked)
+        }
+
+  return (
+    <>
+    <Box mx={2} h={'100vh'}>
+    <Card
+      mx={1}
+      mb={2}
+      p='5px'
+      h='310px'
+      bg={boxBg}>
         <Text
           fontWeight='500'
           my={2}
@@ -45,7 +59,7 @@ const Profile:React.FC =() => {
           height='68px'
           mt='-38px'
           borderRadius='50%'
-        />
+          />
       <Button 
         boxSize={"fit-content"}
         fontSize={13}
@@ -58,12 +72,12 @@ const Profile:React.FC =() => {
         Edit Profile
       </Button>
       </Flex>
-      <Box mb={4} textAlign={'left'} w={'100%'} >
+      <Box mb={2} textAlign={'left'} w={'100%'} >
         <Text textAlign={'left'}  fontWeight='700'>
           Bujang
         </Text>
         <Text textAlign={'left'}  fontSize='10px' fontWeight={'500'} textColor='GrayText'>
-          @bujang
+          @Bujang
         </Text>
         <Text textAlign={'left'}  fontSize='12px'  fontWeight='600'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
@@ -95,10 +109,50 @@ const Profile:React.FC =() => {
       </Flex>
     </Flex>
     </Card>
+
+    <Card  p={2} w={'100%'}>
+      <Flex gap={4}>
+        <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
+          <Box>
+            <Flex alignItems='center' gap={1}>
+              <Heading size='m'>Bujang</Heading>
+                <Text>@bujang</Text>
+                <Icon boxSize={1.5} mt={1} viewBox='0 0 200 200' color='gray.500'>
+                  <path
+                    fill='currentColor'
+                    d='M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0'
+                  />
+                </Icon>
+                <Text color='gray'>1h</Text>
+            </Flex>
+
+            <NavLink to={'/status'}>
+              <Text textAlign={'justify'}>
+                PANTEK
+              </Text>
+            </NavLink>
+
+            <Flex gap={5}>
+              <Button bg='white' onClick={handlelike} >
+                <AiOutlineHeart size={25} color={liked ? 'red' : 'gray' }/>
+                <Text ml={2} color='gray'>
+                  {likes}
+                </Text>
+              </Button>
+
+              <Button bg='white'>
+                <MdOutlineInsertComment size={25} color='gray'/>
+              </Button>
+            </Flex>
+          </Box>
+      </Flex>
+    </Card> 
+    </Box>
+  </>
   );
 }
 
-export default Profile;
+export default ProfileDetailComp;
 
 
 
