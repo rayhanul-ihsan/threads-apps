@@ -3,8 +3,8 @@ import Profile from "./components/Profile"
 import Home from "./pages/Home"
 
 import { Routes, Route} from 'react-router-dom'
-import LoginPage from "./pages/LoginPage"
-import RegisterPage from "./pages/RegisterPage"
+import LoginPage from "./auth/components/LoginPage"
+import RegisterPage from "./auth/components/RegisterPage"
 import DetailStatus from "./pages/Detail-Status"
 import Follows from "./pages/Follows"
 import DetailSearch from "./pages/Detail-Search"
