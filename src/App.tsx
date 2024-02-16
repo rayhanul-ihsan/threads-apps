@@ -10,6 +10,7 @@ import Follows from "./pages/Follows"
 import DetailSearch from "./pages/Detail-Search"
 import Reply from "./components/Reply"
 import DetailProfile from "./pages/Detail-Profile"
+import EditProfile from "./pages/EditProfile"
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/search" element={<DetailSearch/>}/> 
         <Route path="/reply" element={<Reply/>}/> 
         <Route path="/detail-profile" element={<DetailProfile/>}/> 
+        <Route path="/edit-profile" element={<EditProfile/>}/> 
         {/* <Route path="/dftr-followers" element={<DftrFollowers/>}/> */}
       </Routes>
     </>

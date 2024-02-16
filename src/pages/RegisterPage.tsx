@@ -9,13 +9,13 @@ const RegisterPage: React.FC = () => {
     const handleClick = () => setShow(!show)
   return (
     <>
-        <Center w={{base:'100%',lg:'100%',xl:'100%'}}  bg='#EAECEF' alignItems={"center"}>
-            <Card m={130} p={4} alignItems={"center"} bg={'transparent'}>
+        <Center w={{base:'100%',lg:'100%',xl:'100%'}} h={'100vh'}  bg='black' alignItems={"center"}>
+            <Card display={'flex'} p={4} alignItems={"center"} bg={'white'}>
                 <Heading>
-                    Circle
+                    Toa
                 </Heading>
                 <Text>
-                    Create account Circle
+                    Create account Toa
                 </Text>
                 <Flex flexDirection={'column'} my={2}>
                     <Input my={1} placeholder='Full Name*'borderColor={'black'} />
@@ -33,7 +33,7 @@ const RegisterPage: React.FC = () => {
                         </InputRightElement>
                     </InputGroup>
                 </Flex>
-                <Button mb={1} rounded={20} bg={'#482AE3'} color={'white'} w={'full'}>
+                <Button _hover={{bg:'#6178D6', color:'black'}} mb={1} rounded={20} bg={'#482AE3'} color={'white'} w={'full'}>
                     Login
                 </Button>
                 <Flex mb={1}>

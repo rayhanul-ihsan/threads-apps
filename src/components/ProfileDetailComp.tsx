@@ -48,7 +48,6 @@ const ProfileDetailComp:React.FC =() => {
         w={'100%'}
         h={'30%'}
         borderRadius='20px'
-        
       />
       <Flex justify='space-between' w='full' p={3} >
         <Image
@@ -60,17 +59,19 @@ const ProfileDetailComp:React.FC =() => {
           mt='-38px'
           borderRadius='50%'
           />
-      <Button 
-        boxSize={"fit-content"}
-        fontSize={13}
-        rounded={15} 
-        border='2px' 
-        borderColor={"black"}
-        bg={"white"}
-        mt={1}
-        alignItems={"end"}>
-        Edit Profile
-      </Button>
+        <NavLink to={'/edit-profile'}>
+          <Button 
+            boxSize={"fit-content"}
+            fontSize={13}
+            rounded={15} 
+            border='2px' 
+            borderColor={"black"}
+            bg={"white"}
+            mt={1}
+            alignItems={"end"}>
+            Edit Profile
+          </Button>
+        </NavLink>
       </Flex>
       <Box mb={2} textAlign={'left'} w={'100%'} >
         <Text textAlign={'left'}  fontWeight='700'>

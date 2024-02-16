@@ -41,7 +41,7 @@ const NavbarComp :React.FC = () => {
             <AiOutlineHeart size={25}  />
           </Button>
         </NavLink>
-        <NavLink to={'/follows'}>
+        <NavLink to={'/detail-profile'}>
           <Button 
             _hover={{ bg: 'white', color: 'gray'}} 
             bg='white'>

@@ -2,6 +2,7 @@
 import React from "react";
 // Chakra imports
 import { Box, Button, Card, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
 
 const Profile:React.FC =() => {
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
@@ -46,17 +47,19 @@ const Profile:React.FC =() => {
           mt='-38px'
           borderRadius='50%'
         />
-      <Button 
-        boxSize={"fit-content"}
-        fontSize={13}
-        rounded={15} 
-        border='2px' 
-        borderColor={"black"}
-        bg={"white"}
-        mt={1}
-        alignItems={"end"}>
-        Edit Profile
-      </Button>
+        <NavLink to={'/detail-profile'}>
+          <Button 
+            boxSize={"fit-content"}
+            fontSize={13}
+            rounded={15} 
+            border='2px' 
+            borderColor={"black"}
+            bg={"white"}
+            mt={1}
+            alignItems={"end"}>
+            Edit Profile
+          </Button>
+        </NavLink>
       </Flex>
       <Box mb={4} textAlign={'left'} w={'100%'} >
         <Text textAlign={'left'}  fontWeight='700'>
