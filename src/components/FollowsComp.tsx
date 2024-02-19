@@ -1,6 +1,15 @@
-import { Box, Card, Flex, Heading, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react'
+import {Box, 
+        Card, 
+        Heading, 
+        Tab, 
+        TabList, 
+        TabPanel, 
+        TabPanels, 
+        Tabs } 
+from '@chakra-ui/react'
 import React from 'react'
 import DftrFollowers from './DftrFollowers'
+import DftrFollowing from './DftrFollowing'
 
 const FollowsComp: React.FC = () => {
   return (
@@ -10,8 +19,6 @@ const FollowsComp: React.FC = () => {
          <Heading  fontSize='23px' gap={2} mb={6} >
             Follows
          </Heading>
-         {/* <Flex justifyContent={'space-around'}>
-          </Flex> display={'flex'} justifyContent={'space-between'} */}
           <Tabs isFitted> 
             <TabList>
               <Tab>
@@ -23,19 +30,13 @@ const FollowsComp: React.FC = () => {
             </TabList>
             <TabPanels>
               <TabPanel>
-              <DftrFollowers/>
+                <DftrFollowers/>
               </TabPanel>
               <TabPanel>
-              {/* <DftrFollowers/> */}
+                <DftrFollowing/>
               </TabPanel>
             </TabPanels>
           </Tabs>
-            {/* <Text _active={{textDecoration: 'underline', color: 'blue'}} _hover={{cursor: 'pointer', color: 'gray'}} fontWeight={'500'}>
-                Followers
-            </Text>
-            <Text _hover={{cursor: 'pointer', color: 'gray'}} fontWeight={'500'}>
-                Following
-            </Text> */}
         </Card>
       </Box>
     </>

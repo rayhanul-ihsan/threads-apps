@@ -35,9 +35,11 @@ const LoginPage: React.FC = () => {
                         </Text>
                     </NavLink>
                 </Flex>
-                <Button _hover={{bg:'#6178D6', color:'black'}} mb={1} rounded={20} bg={'#482AE3'} color={'white'} w={'full'}>
+                <NavLink to={'/'}>
+                <Button _hover={{bg:'#6178D6', color:'black'}} mb={1} rounded={20} bg={'#482AE3'} color={'white'} w={'250px'}>
                     Login
                 </Button>
+                </NavLink>
                 <Flex mb={1}>
                     <Text fontWeight={'600'} fontSize='10px'  textColor='GrayText'>
                         Don't have an account?

@@ -11,7 +11,6 @@ const Follows : React.FC = () => {
     <>
       <Layout>
         <FollowsComp/>
-        
       </Layout>
     </>
   )
