@@ -1,13 +1,20 @@
-import { Button, Card, Center, Container, Flex, Heading, Input, InputGroup, InputRightElement, Text } from '@chakra-ui/react'
+import { Button, Card, Center, Icon, Flex, Heading, Input, InputGroup, InputRightElement, Text, useColorMode } from '@chakra-ui/react'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import UseLogin from '../hooks/UseLogin'
+import { BiMoon, BiSun } from 'react-icons/bi'
 
 const LoginPage: React.FC = () => {
     const [show, setShow] = React.useState(false)
+
     const handleClick = () => setShow(!show)
+
+    const {handleChange, handleLogin} = UseLogin()
+
+    const { colorMode, toggleColorMode } = useColorMode()
   return (
     <>
-        <Center w={{base:'100%',lg:'100%',xl:'100%'}} bg='black' h={'100vh'} alignItems={"center"}>
+        <Center w={{base:'100%',lg:'100%',xl:'100%'}} bg='gray-400' h={'100vh'} alignItems={"center"}>
             <Card display={'flex'} alignContent={'center'} p={4} alignItems={"center"}>
                 <Heading>
                     Toa
@@ -15,13 +22,24 @@ const LoginPage: React.FC = () => {
                 <Text fontWeight={'700'}>
                     Login to Toa
                 </Text>
+                <Button
+                    onClick={toggleColorMode}
+                    bg={"transparent"}
+                    p={2}
+                    rounded={"full"}
+                    _hover={{ bg: "transparent" }}
+                >
+                    <Icon as={colorMode === "dark" ? BiMoon : BiSun} />
+                </Button>
                 <Flex flexDirection={'column'} my={2}>
-                    <Input my={1} placeholder='Email/Username*'borderColor={'black'} />
+                    <Input my={1} placeholder='Email/Username*' name='user_name' borderColor={'black'} onChange={handleChange}/>
                     <InputGroup my={1} size='md' borderColor={'black'}>
                         <Input
                             pr='4.5rem'
                             type={show ? 'text' : 'password'}
                             placeholder='Password*'
+                            name='password'
+                            onChange={handleChange}
                             />
                         <InputRightElement width='4.5rem'>
                             <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -35,11 +53,11 @@ const LoginPage: React.FC = () => {
                         </Text>
                     </NavLink>
                 </Flex>
-                <NavLink to={'/'}>
-                <Button _hover={{bg:'#6178D6', color:'black'}} mb={1} rounded={20} bg={'#482AE3'} color={'white'} w={'250px'}>
+                {/* <NavLink to={'/'}>
+                </NavLink> */}
+                <Button onClick={handleLogin} _hover={{bg:'#6178D6', color:'black'}} mb={1} rounded={20} bg={'#482AE3'} color={'white'} w={'250px'}>
                     Login
                 </Button>
-                </NavLink>
                 <Flex mb={1}>
                     <Text fontWeight={'600'} fontSize='10px'  textColor='GrayText'>
                         Don't have an account?

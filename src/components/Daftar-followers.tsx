@@ -16,6 +16,11 @@ const DaftarFollowers: React.FC<Followers> = (props) => {
     const [foll, setFoll] = useState<boolean>(false)
 
     const handleFollowers = () => {
+        if (!foll){
+            setFoll(true)
+        }else{
+            setFoll(false)
+        }
     }
   return (
     <>
@@ -35,8 +40,9 @@ const DaftarFollowers: React.FC<Followers> = (props) => {
                 border='2px' 
                 borderColor={"black"}
                 bg={"white"}
-                alignItems='center'>
-                Follow
+                alignItems='center'
+                onClick={handleFollowers}>
+                {foll ? 'Following' : 'Follow'}
             </Button>
         </Flex>
     </Card>

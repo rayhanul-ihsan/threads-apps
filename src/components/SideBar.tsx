@@ -5,14 +5,15 @@ import { TbLogout2 } from "react-icons/tb";
 import { NavLink } from 'react-router-dom';
 import { LuImagePlus } from 'react-icons/lu';
 import { AiOutlineHeart } from "react-icons/ai";
-import { BiSolidHomeAlt2 } from "react-icons/bi";
+import { BiMoon, BiSolidHomeAlt2, BiSun } from "react-icons/bi";
 import { RiUserSearchLine } from "react-icons/ri";
 
-import {  Avatar, Box, Button, Card, Flex, Heading, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Text, useDisclosure } from '@chakra-ui/react'
+import {  Avatar, Box, Button, Icon, Flex, Heading, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Text, useDisclosure, useColorMode } from '@chakra-ui/react'
 
 const SideBar :React.FC = () => {
   const { isOpen, onOpen, onClose  } = useDisclosure()
 
+  // const { colorMode, toggleColorMode } = useColorMode()
 
   return (
     <>
@@ -20,9 +21,19 @@ const SideBar :React.FC = () => {
 
     <Flex  direction='column' height='100vh'  position={'fixed'} >
       <Box >
+        <Flex justifyContent='space-between' alignItems='center'>
         <NavLink to={'/'}>
           <Heading _hover={{color:'#6178D6'}} color='#482AE3' ml={4} p={4}>Toa</Heading>
         </NavLink>
+        {/* <Button
+          onClick={toggleColorMode}
+          bg={"transparent"}
+          p={2}
+          rounded={"full"}
+          _hover={{ bg: "transparent" }}>
+            <Icon as={colorMode === "dark" ? BiMoon : BiSun} />
+        </Button> */}
+        </Flex>
           <NavLink to={'/'}>
             <Flex pl={4} >
                 <Button _hover={{ bg: 'EAECEF', color: 'gray'}} bg='#EAECEF'><BiSolidHomeAlt2 size={25} /></Button>

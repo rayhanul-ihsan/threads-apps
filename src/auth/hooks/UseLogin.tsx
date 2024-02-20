@@ -1,11 +1,9 @@
 import { ChangeEvent, useState } from 'react'
-import { IUserRegister } from '../../interface/user'
+import { IUserLogin, IUserRegister } from '../../interface/user'
 import { API } from '../../libs/api'
 
-export default function UseRegister() {
-    const [form, setForm] = useState<IUserRegister>({
-        email: '',
-        full_name: '',
+export default function UseLogin() {
+    const [form, setForm] = useState<IUserLogin>({
         password: '',
         user_name: ''
     })
@@ -17,13 +15,15 @@ function handleChange(e: ChangeEvent<HTMLInputElement>){
     })
 }
 
-async function handleRegister() {
+async function handleLogin() {
     try {
-        await API.post('/auth/register', form)
+        console.log(form);
+        
+        await API.post('/auth/login', form)
     } catch (error) {
         throw(error)        
     }
 }
 
-    return {handleRegister, handleChange}
+    return {handleLogin, handleChange}
 }

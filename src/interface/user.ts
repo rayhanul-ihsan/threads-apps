@@ -5,7 +5,12 @@
 
 export interface IUserRegister {
     full_name: string
-    username: string
+    user_name: string
     email: string
+    password: string
+}
+export interface IUserLogin {
+    user_name: string
+    // email: string
     password: string
 }
