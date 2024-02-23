@@ -1,13 +1,29 @@
 
-import React from "react";
-// Chakra imports
+import React, { useEffect } from "react";
 import { Box, Button, Card, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../stores/types/rootState";
+import { AUTH_CHECK } from "../stores/rootReducer";
 
 const Profile:React.FC =() => {
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
-  let mainText = useColorModeValue("gray.800", "white");
-  let secondaryText = useColorModeValue("gray.400", "gray.400");
+  // let mainText = useColorModeValue("gray.800", "white");
+  // let secondaryText = useColorModeValue("gray.400", "gray.400");
+
+  const auth = useSelector((state: RootState) => state.auth)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const stroreAuthData = localStorage.getItem('authDate')
+    if(stroreAuthData) {
+      const parseAuthData = JSON.parse(stroreAuthData)
+      dispatch(AUTH_CHECK({
+        user: parseAuthData
+      }))    
+    }
+  },[dispatch, auth])
 
   return (
     <Card
@@ -39,7 +55,7 @@ const Profile:React.FC =() => {
       />
       <Flex justify='space-between' w='full' p={3} >
         <Image
-          src='https://bit.ly/ryan-florence'
+          src={auth.profile_picture ? auth.profile_picture : 'https://bit.ly/broken-link'}
           border='5px solid red'
           borderColor={boxBg}
           width='68px'
@@ -63,13 +79,13 @@ const Profile:React.FC =() => {
       </Flex>
       <Box mb={4} textAlign={'left'} w={'100%'} >
         <Text textAlign={'left'}  fontWeight='700'>
-          Bujang
+          {auth.full_name}
         </Text>
         <Text textAlign={'left'}  fontSize='10px' fontWeight={'500'} textColor='GrayText'>
-          @bujang
+          @{auth.user_name}
         </Text>
         <Text textAlign={'left'}  fontSize='12px'  fontWeight='600'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+          {auth.bio}
         </Text>
       </Box>
       <Flex gap={2} w='100%' px='20px'>

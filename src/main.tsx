@@ -4,15 +4,22 @@ import App from './App.tsx'
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter } from 'react-router-dom' 
 import {ThemeProvider} from './providers/themeProvider.tsx'
+import { configureStore } from '@reduxjs/toolkit'
+import rootReducer from './stores/rootReducer.ts'
+import { Provider } from 'react-redux'
+
+const store = configureStore({
+  reducer: rootReducer
+})
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-    <ThemeProvider>
         <ChakraProvider>
-          <App />
+          <Provider store={store}>
+            <App />
+          </Provider>
         </ChakraProvider>
-      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )

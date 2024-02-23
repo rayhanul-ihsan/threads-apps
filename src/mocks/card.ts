@@ -54,6 +54,24 @@ const data : Data[]=
         description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
         avatar : "https://bit.ly/sage-adebayo",
         like: 69
+    },
+    {
+        id : 6,
+        name: "pani",
+        username : "@pani",
+        jam: "4h",
+        description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
+        avatar : "https://bit.ly/sage-adebayo",
+        like: 69
+    },
+    {
+        id : 7,
+        name: "pani",
+        username : "@pani",
+        jam: "4h",
+        description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
+        avatar : "https://bit.ly/sage-adebayo",
+        like: 69
     }
 ]
 

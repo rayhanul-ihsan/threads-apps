@@ -3,11 +3,15 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import UseLogin from '../hooks/UseLogin'
 import { BiMoon, BiSun } from 'react-icons/bi'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../stores/types/rootState'
 
 const LoginPage: React.FC = () => {
     const [show, setShow] = React.useState(false)
 
     const handleClick = () => setShow(!show)
+    const data = useSelector((state: RootState) => state.auth)
+    console.log('data',data)
 
     const {handleChange, handleLogin} = UseLogin()
 

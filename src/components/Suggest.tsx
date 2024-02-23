@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Avatar,  Button,   Card,   Flex, Heading, Text} from '@chakra-ui/react'
-import { color } from 'framer-motion';
  
 const Suggest: React.FC = () => {
 

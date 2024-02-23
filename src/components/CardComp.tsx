@@ -17,7 +17,7 @@ interface Data  {
 }
 
 const CardComp : React.FC<Data> = (props) => {
-    const {id, name, username, description, like, jam} = props
+    const { name, username, description, like, jam} = props
 
     const { isOpen, onOpen, onClose  } = useDisclosure()
 
@@ -27,7 +27,7 @@ const CardComp : React.FC<Data> = (props) => {
 
         const handlelike = () => {
             if (!liked) {
-                setLikes(likes + 1)
+                setLikes(like + 1)
             } else{
                 setLikes(likes - 1)
             }
@@ -36,7 +36,7 @@ const CardComp : React.FC<Data> = (props) => {
 
   return (
     <>
-        <Card mt={2} p={2} w={'100%'}>
+        <Card mt={2} p={2} bg={'transparent'} w={'100%'}>
             <Flex gap={4}>
                 <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
                 <Box>
@@ -57,7 +57,7 @@ const CardComp : React.FC<Data> = (props) => {
                     </Text>
                 </NavLink>
                 <Flex gap={5}>
-                    <Button bg='white' onClick={handlelike} >
+                    <Button bg='transparent' onClick={handlelike} >
                         <AiOutlineHeart size={25} color={liked ? 'red' : 'gray' }/>
                         <Text ml={2} color='gray'>
                             {likes}
@@ -65,7 +65,7 @@ const CardComp : React.FC<Data> = (props) => {
                     </Button>
                     {/* <NavLink to={'/reply'}>
                     </NavLink> */}
-                    <Button onClick={onOpen} bg='white'>
+                    <Button onClick={onOpen} bg='trasnsparent'>
                         <MdOutlineInsertComment size={25} color='gray'/>
                     </Button>
                 </Flex>

@@ -9,7 +9,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <Card w={'100%'}>
+      <Card w={'100%'} bg={'transparent'}>
         <Flex justifyContent={'center'}>
           <NavLink to={'/'}>
             <Heading _hover={{color:'black', cursor:'pointer'}} fontSize='30px' color={'#482AE3'} m={2}>
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
         <Flex gap={1}  p={2}>
             <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
             <Input placeholder='What is happening?!' />
-            <Button _hover={{bg:'white'}} rounded={15} bg='#ffff'>
+            <Button variant={'ghost'} _hover={{bg:'transparent'}} rounded={15} bg='trsansparent'>
               <LuImagePlus size={30} color='#482AE3' />
             </Button>
             <Button _hover={{bg:'#6178D6', color:'black'}} rounded={20} color='white' bg='#482AE3' >
