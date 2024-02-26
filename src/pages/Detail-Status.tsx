@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import Suggest from '../components/Suggest';
 import Status from '../components/Status';
 import Coment from '../components/Coment';
-import Layout from '../layout';
+import Layout from '../layouts/Layout';
 
 
 

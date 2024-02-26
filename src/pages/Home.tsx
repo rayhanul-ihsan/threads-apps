@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Layout from '../Layout';
+import Layout from '../layouts/Layout';
 import Cards from '../components/Cards';
 import Header from '../components/Header';
 

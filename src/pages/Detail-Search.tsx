@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Search from '../components/Search';
-import Layout from '../Layout';
+import Layout from '../layouts/Layout';
 
 
 
