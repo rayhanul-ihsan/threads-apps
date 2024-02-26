@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
-import { IUserRegister } from '../../interface/user'
-import { API } from '../../libs/api'
+import { IUserRegister } from '../../../interface/user'
+import { API } from '../../../libs/api'
 
 export default function UseRegister() {
     const [form, setForm] = useState<IUserRegister>({

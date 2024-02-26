@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import UseLogin from '../hooks/UseLogin'
 import { BiMoon, BiSun } from 'react-icons/bi'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../stores/types/rootState'
+import { RootState } from '../../../stores/types/rootState'
 
 const LoginPage: React.FC = () => {
     const [show, setShow] = React.useState(false)

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { LuImagePlus } from 'react-icons/lu';
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdOutlineInsertComment } from "react-icons/md";
-import { Avatar, Box, Button, Card,  Flex, Heading, Text, Icon, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, ModalFooter } from '@chakra-ui/react'
+import { Avatar, Box, Button, Card,  Flex, Heading, Text, Icon, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, ModalFooter, Image } from '@chakra-ui/react'
 
 
 
@@ -41,7 +41,7 @@ const CardComp : React.FC<Data> = (props) => {
                 <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
                 <Box>
                 <Flex alignItems='center' gap={1}>
-                    <Heading size='m'>{name}</Heading>
+                    <Heading _hover={{fontdirect:'underline', cursor: 'pointer'}} size='m'>{name}</Heading>
                     <Text>{username}</Text>
                     <Icon boxSize={1.5} mt={1} viewBox='0 0 200 200' color='gray.500'>
                     <path
@@ -56,6 +56,7 @@ const CardComp : React.FC<Data> = (props) => {
                         {description}
                     </Text>
                 </NavLink>
+                <Image src={'https://bit.ly/sage-adebayo'} borderRadius={'10px'} w={'50%'} my={2}/>
                 <Flex gap={5}>
                     <Button bg='transparent' onClick={handlelike} >
                         <AiOutlineHeart size={25} color={liked ? 'red' : 'gray' }/>
@@ -69,7 +70,7 @@ const CardComp : React.FC<Data> = (props) => {
                         <MdOutlineInsertComment size={25} color='gray'/>
                     </Button>
                 </Flex>
-                </Box>
+                </Box> 
             </Flex>
         </Card>
         <Modal isOpen={isOpen} onClose={onClose}>

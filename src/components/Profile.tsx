@@ -13,17 +13,17 @@ const Profile:React.FC =() => {
 
   const auth = useSelector((state: RootState) => state.auth)
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch() 
 
-  useEffect(() => {
-    const stroreAuthData = localStorage.getItem('authDate')
-    if(stroreAuthData) {
-      const parseAuthData = JSON.parse(stroreAuthData)
-      dispatch(AUTH_CHECK({
-        user: parseAuthData
-      }))    
-    }
-  },[dispatch, auth])
+  // useEffect(() => {
+  //   const stroreAuthData = localStorage.getItem('authDate')
+  //   if(stroreAuthData) {
+  //     const parseAuthData = JSON.parse(stroreAuthData)
+  //     dispatch(AUTH_CHECK({
+  //       user: parseAuthData
+  //     }))    
+  //   }
+  // },[dispatch, auth])
 
   return (
     <Card
