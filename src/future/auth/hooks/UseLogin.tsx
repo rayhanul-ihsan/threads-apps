@@ -31,7 +31,9 @@ async function handleLogin() {
         console.log(response.data)
         // console.log(form)
 
-        localStorage.setItem('authDate',  JSON.stringify(response.data.user))
+        localStorage.setItem('authDate',   JSON.stringify(response.data.user))
+        localStorage.setItem('token',   JSON.stringify(response.data.token))
+
 
         navigate("/")
     } catch (error) {

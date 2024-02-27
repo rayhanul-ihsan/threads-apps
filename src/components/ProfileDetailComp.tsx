@@ -1,10 +1,13 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // Chakra imports
 import { Avatar, Box, Button, Card, Flex, Heading, Icon, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdOutlineInsertComment } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../stores/types/rootState";
+import { AUTH_CHECK } from "../stores/rootReducer";
 
 const ProfileDetailComp:React.FC =() => {
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
@@ -20,9 +23,21 @@ const ProfileDetailComp:React.FC =() => {
             } else{
                 setLikes(likes - 1)
             }
-            setLiked(!liked)
+            setLiked(!liked) 
         }
 
+        const auth = useSelector((state: RootState) => state.auth)
+        const dispatch = useDispatch() 
+
+        useEffect(() => {
+          const stroreAuthData = localStorage.getItem('authDate')
+          if(stroreAuthData) {
+            const parseAuthData = JSON.parse(stroreAuthData)
+            dispatch(AUTH_CHECK({
+              user: parseAuthData
+            }))    
+          }
+        },[dispatch, auth])
   return (
     <>
     <Box mx={2} h={'100vh'}>
@@ -43,7 +58,7 @@ const ProfileDetailComp:React.FC =() => {
       alignItems='center'
       mx={2}>
       <Image
-        src='https://i.ibb.co/xmP2pS6/Profile.png'
+        src={auth.image_cover ? auth.image_cover :'https://i.ibb.co/xmP2pS6/Profile.png'}
         // maxW='100%'
         w={'100%'}
         h={'30%'}
@@ -51,7 +66,7 @@ const ProfileDetailComp:React.FC =() => {
       />
       <Flex justify='space-between' w='full' p={3} >
         <Image
-          src='https://bit.ly/ryan-florence'
+          src={auth.profile_picture ? auth.profile_picture : 'https://bit.ly/broken-link'}
           border='5px solid red'
           borderColor={boxBg}
           width='68px'
@@ -75,13 +90,13 @@ const ProfileDetailComp:React.FC =() => {
       </Flex>
       <Box mb={2} textAlign={'left'} w={'100%'} >
         <Text textAlign={'left'}  fontWeight='700'>
-          Bujang
+          {auth.full_name}
         </Text>
         <Text textAlign={'left'}  fontSize='10px' fontWeight={'500'} textColor='GrayText'>
-          @Bujang
+          @{auth.user_name}
         </Text>
         <Text textAlign={'left'}  fontSize='12px'  fontWeight='600'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+          {auth.bio} 
         </Text>
       </Box>
       <Flex gap={2} w='100%' px='20px'>

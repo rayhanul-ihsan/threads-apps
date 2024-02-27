@@ -13,17 +13,17 @@ const Profile:React.FC =() => {
 
   const auth = useSelector((state: RootState) => state.auth)
 
-  // const dispatch = useDispatch() 
+  const dispatch = useDispatch() 
 
-  // useEffect(() => {
-  //   const stroreAuthData = localStorage.getItem('authDate')
-  //   if(stroreAuthData) {
-  //     const parseAuthData = JSON.parse(stroreAuthData)
-  //     dispatch(AUTH_CHECK({
-  //       user: parseAuthData
-  //     }))    
-  //   }
-  // },[dispatch, auth])
+  useEffect(() => {
+    const stroreAuthData = localStorage.getItem('authDate')
+    if(stroreAuthData) {
+      const parseAuthData = JSON.parse(stroreAuthData)
+      dispatch(AUTH_CHECK({
+        user: parseAuthData
+      }))    
+    }
+  },[dispatch, auth])
 
   return (
     <Card
@@ -46,13 +46,13 @@ const Profile:React.FC =() => {
       alignItems='center'
       mx={2}>
       <Image
-        src='https://i.ibb.co/xmP2pS6/Profile.png'
+        src={auth.image_cover ? auth.image_cover :'https://i.ibb.co/xmP2pS6/Profile.png'}
         // maxW='100%'
         w={'100%'}
         h={'30%'}
         borderRadius='20px'
         
-      />
+      /> 
       <Flex justify='space-between' w='full' p={3} >
         <Image
           src={auth.profile_picture ? auth.profile_picture : 'https://bit.ly/broken-link'}

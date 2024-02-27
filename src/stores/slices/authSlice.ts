@@ -34,7 +34,7 @@ export const authSlice = createSlice({
                 profile_picture,
                 image_cover,
                 bio
-             } = data.obj
+             } = action.payload.user
 
              const { token } = action.payload
 

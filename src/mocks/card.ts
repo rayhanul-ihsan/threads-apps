@@ -12,8 +12,8 @@ const data : Data[]=
 [
     {
         id : 1,
-        name: "Parid",
-        username : "@parid",
+        name: "Muhammad Rayhanul Ihsan",
+        username : "@ihsan",
         jam: "5h",
         description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
         avatar : "https://bit.ly/sage-adebayo",
@@ -21,8 +21,8 @@ const data : Data[]=
     },
     {
         id : 2,
-        name: "alex",
-        username : "@alex",
+        name: "Muhammad Rayhanul Ihsan",
+        username : "@ihsan",
         jam: "10h",
         description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
         avatar : "https://bit.ly/sage-adebayo",
@@ -30,8 +30,8 @@ const data : Data[]=
     },
     {
         id : 3,
-        name: "koko",
-        username : "@koko",
+        name: "Muhammad Rayhanul Ihsan",
+        username : "@ihsan",
         jam: "4h",
         description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
         avatar : "https://bit.ly/sage-adebayo",
@@ -39,8 +39,8 @@ const data : Data[]=
     },
     {
         id : 4,
-        name: "Ahmad",
-        username : "@ahmad",
+        name: "Muhammad Rayhanul Ihsan",
+        username : "@ihsan",
         jam: "4h",
         description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
         avatar : "https://bit.ly/sage-adebayo",
@@ -48,8 +48,8 @@ const data : Data[]=
     },
     {
         id : 5,
-        name: "pani",
-        username : "@pani",
+        name: "Muhammad Rayhanul Ihsan",
+        username : "@ihsan",
         jam: "4h",
         description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
         avatar : "https://bit.ly/sage-adebayo",
@@ -57,8 +57,8 @@ const data : Data[]=
     },
     {
         id : 6,
-        name: "pani",
-        username : "@pani",
+        name: "Muhammad Rayhanul Ihsan",
+        username : "@ihsan",
         jam: "4h",
         description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
         avatar : "https://bit.ly/sage-adebayo",
@@ -66,8 +66,8 @@ const data : Data[]=
     },
     {
         id : 7,
-        name: "pani",
-        username : "@pani",
+        name: "Muhammad Rayhanul Ihsan",
+        username : "@ihsan",
         jam: "4h",
         description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero est eligendi aliquam nesciunt! Enim deleniti nostrum ad culpa eos illum, sequi praesentium, nulla minus qui aperiam explicabo fugiat repudiandae repellendus!",
         avatar : "https://bit.ly/sage-adebayo",

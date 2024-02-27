@@ -36,7 +36,7 @@ const CardComp : React.FC<Data> = (props) => {
 
   return (
     <>
-        <Card mt={2} p={2} bg={'transparent'} w={'100%'}>
+        <Card mt={2} p={2} border={'darkgray'} borderColor={'black'} bg={'transparent'} w={'100%'}>
             <Flex gap={4}>
                 <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
                 <Box>

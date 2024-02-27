@@ -11,7 +11,7 @@ import DetailSearch from "./pages/Detail-Search"
 import Reply from "./components/Reply"
 import DetailProfile from "./pages/Detail-Profile"
 import EditProfile from "./pages/EditProfile"
-import ThemeSwitcher from "./theme/ThemeSwitcher"
+// import ThemeSwitcher from "./theme/ThemeSwitcher"
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
         <Route path="/reply" element={<Reply/>}/> 
         <Route path="/detail-profile" element={<DetailProfile/>}/> 
         <Route path="/edit-profile" element={<EditProfile/>}/> 
-        <Route path="/swith" element={<ThemeSwitcher/>}/> 
+        {/* <Route path="/swith" element={<ThemeSwitcher/>}/>  */}
         {/* <Route path="/dftr-followers" element={<DftrFollowers/>}/> */}
       </Routes>
     </>
