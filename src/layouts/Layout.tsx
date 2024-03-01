@@ -1,10 +1,11 @@
 import React from 'react'
 import Footer from '../components/Footer'
-import Suggest from '../components/Suggest'
 import SideBar from '../components/SideBar'
-import Profile from '../components/Profile'
+import Profile from '../future/profile/components/Profile'
 import { Box, Flex } from '@chakra-ui/react'
 import NavbarComp from '../components/NavbarComp'
+import Suggests from '../future/suggests/hooks/Suggests'
+import BoxSuggest from '../future/suggests/components/BoxSuggest'
 
 interface LayoutProp {
     children: React.ReactNode
@@ -24,7 +25,7 @@ const Layout = ({children}: LayoutProp) => {
             <Box   pos={'relative'} w={{base:'100%',lg:'30%',xl:'30%'}} h={'100vh'}  >
                 <Box position={'fixed'} >
                     <Profile />
-                    <Suggest/>
+                    <BoxSuggest/>
                     <Footer/>
                 </Box>
             </Box>

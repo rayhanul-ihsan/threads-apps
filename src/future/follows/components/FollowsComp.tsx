@@ -8,14 +8,14 @@ import {Box,
         Tabs } 
 from '@chakra-ui/react'
 import React from 'react'
-import DftrFollowers from './DftrFollowers'
-import DftrFollowing from './DftrFollowing'
+import DftrFollowers from '../../../components/DftrFollowers'
+import DftrFollowing from '../../../components/DftrFollowing'
 
 const FollowsComp: React.FC = () => {
   return (
     <>
       <Box>
-        <Card p={2} w={'100%'}>
+        <Card p={2} bg={'transparent'} w={'100%'}>
          <Heading  fontSize='23px' gap={2} mb={6} >
             Follows
          </Heading>

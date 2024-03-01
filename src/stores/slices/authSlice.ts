@@ -12,7 +12,8 @@ const initialAuthState: IUser = {
     password: '',
     profile_picture: '',
     image_cover: '',
-    bio: ''    
+    bio: '', 
+    threads: []   
 }
 
 export const authSlice = createSlice({
@@ -33,7 +34,8 @@ export const authSlice = createSlice({
                 user_name,
                 profile_picture,
                 image_cover,
-                bio
+                bio,
+                threads
              } = action.payload.user
 
              const { token } = action.payload
@@ -48,6 +50,7 @@ export const authSlice = createSlice({
              state.profile_picture = profile_picture
              state.image_cover = image_cover
              state.bio = bio
+             state.threads = threads
         },
         AUTH_CHECK:(state, action) =>{
             const { 
@@ -57,7 +60,8 @@ export const authSlice = createSlice({
                 user_name,
                 profile_picture,
                 image_cover,
-                bio
+                bio,
+                threads
              } = action.payload.user
 
              state.id = id
@@ -67,6 +71,7 @@ export const authSlice = createSlice({
              state.profile_picture = profile_picture
              state.image_cover = image_cover
              state.bio = bio
+             state.threads = threads
         },
         AUTH_ERROR: () => {
             localStorage.removeItem('token')

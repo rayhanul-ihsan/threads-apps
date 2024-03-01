@@ -1,8 +1,8 @@
 import React from 'react'
 
 import Layout from '../layouts/Layout';
-import Cards from '../components/Cards';
-import Header from '../components/Header';
+import Cards from '../future/thread/hooks/Cards';
+import FormPostThread from '../future/thread/components/FormPostThread';
 
 
 
@@ -10,7 +10,7 @@ const Home : React.FC = () => {
   return (
     <>
       <Layout>
-        <Header/>
+        <FormPostThread/>
         <Cards/>
       </Layout>
     </>

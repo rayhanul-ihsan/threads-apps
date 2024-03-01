@@ -1,54 +1,80 @@
-import { Avatar, Button, Card, Flex, Heading, Text } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  Flex,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
+import React, { useState } from "react";
 
-interface Followers  {
-    id : number
-    name :string
-    username :string
-    avatar :string
-    is_following:boolean
+interface Data {
+  id: number | undefined;
+  name: string | undefined;
+  username: string | undefined;
+  image: string | undefined;
+  follow?: boolean;
+  isFollowing?: boolean;
 }
 
-const DaftarFollowers: React.FC<Followers> = (props) => {
-    const {id, name, username, avatar, is_following} = props
+const handleGetUsers = () => {
     
-    console.log(props)
-    const [foll, setFoll] = useState<boolean>(false)
+};
 
-    const handleFollowers = () => {
-        if (!foll){
-            setFoll(true)
-        }else{
-            setFoll(false)
-        }
+const DaftarFollowers: React.FC<Data> = (props) => {
+  const { id, name, username, image } = props;
+
+  console.log(props);
+  const [foll, setFoll] = useState<boolean>(false);
+
+  const handleFollowers = () => {
+    if (!foll) {
+      setFoll(true);
+    } else {
+      setFoll(false);
     }
+  };
   return (
     <>
-    <Card p={1} my={2} w={"100%"}>
-        <Flex gap={1} p={2} justifyContent='space-between' alignItems={"center"}>
-            <Flex alignItems={"center"} gap={1}>
-                <Avatar name='gatot' src={avatar}/>
-                <Flex flexDirection='column'>
-                    <Heading size='m'>{name}</Heading>
-                    <Text mt={-2} fontSize='10px'  textColor='GrayText'>{username}</Text>
-                </Flex>
+      <Box
+        my={2}
+        _hover={{ bg: "gray.200" }}
+        w={"100%"}
+        borderBlock={2}
+        borderColor={"black"}
+      >
+        <Flex
+          gap={1}
+          p={2}
+          justifyContent="space-between"
+          alignItems={"center"}
+        >
+          <Flex alignItems={"center"} gap={1}>
+            <Avatar name="gatot" src={image} />
+            <Flex flexDirection="column">
+              <Heading size="m">{name}</Heading>
+              <Text mt={-2} fontSize="12px" textColor="GrayText">
+                @{username}
+              </Text>
             </Flex>
-            <Button 
-                boxSize={"fit-content"}
-                fontSize={13}
-                rounded={15} 
-                border='2px' 
-                borderColor={"black"}
-                bg={"white"}
-                alignItems='center'
-                onClick={handleFollowers}>
-                {foll ? 'Following' : 'Follow'}
-            </Button>
+          </Flex>
+          <Button
+            boxSize={"fit-content"}
+            fontSize={13}
+            rounded={15}
+            border="2px"
+            borderColor={"black"}
+            bg={"transparent"}
+            alignItems="center"
+            onClick={handleFollowers}
+          >
+            {foll ? "Following" : "Follow"}
+          </Button>
         </Flex>
-    </Card>
-
+      </Box>
     </>
-  )
-}
+  );
+};
 
-export default DaftarFollowers
+export default DaftarFollowers;

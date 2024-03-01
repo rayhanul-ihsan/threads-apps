@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 import { Box, Button, Card, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../stores/types/rootState";
-import { AUTH_CHECK } from "../stores/rootReducer";
+import { RootState } from "../../../stores/types/rootState";
+import { AUTH_CHECK } from "../../../stores/rootReducer";
 
 const Profile:React.FC =() => {
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
@@ -30,9 +30,9 @@ const Profile:React.FC =() => {
       mx={"2"}
       my={2} 
       borderRadius='15px'
-      bg={boxBg}
+      bg={'#E5E5E5'}
       // p='5px'
-      h='310px'
+      h='300px'
       w='100%'>
 
         <Text
@@ -70,7 +70,7 @@ const Profile:React.FC =() => {
             rounded={15} 
             border='2px' 
             borderColor={"black"}
-            bg={"white"}
+            bg={"transparent"}
             mt={1}
             alignItems={"end"}>
             Edit Profile

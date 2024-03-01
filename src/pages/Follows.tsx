@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FollowsComp from '../components/FollowsComp';
+import FollowsComp from '../future/follows/components/FollowsComp';
 import DftrFollowers from '../components/DftrFollowers';
 import Layout from '../layouts/Layout';
 

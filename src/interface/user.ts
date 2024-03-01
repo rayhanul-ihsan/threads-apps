@@ -1,3 +1,5 @@
+import { IThread } from "./thread"
+
 export interface IUser{
     id?: number
     full_name?: string
@@ -7,6 +9,7 @@ export interface IUser{
     profile_picture?: string
     image_cover?: string
     bio?: string
+    threads?: IThread[]
 }
 
 export interface IUserRegister {
@@ -19,9 +22,4 @@ export interface IUserLogin {
     user_name: string
     // email: string
     password: string
-}
-export interface IThread {
-    content: string
-    // email: string
-    image: string
 }

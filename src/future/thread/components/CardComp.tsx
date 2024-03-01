@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { LuImagePlus } from 'react-icons/lu';
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdOutlineInsertComment } from "react-icons/md";
-import { Avatar, Box, Button, Card,  Flex, Heading, Text, Icon, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, ModalFooter, Image } from '@chakra-ui/react'
+import { Avatar, Box, Button, Card,  Flex, Heading, Text, Icon, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Input, ModalFooter, Image, InputGroup, InputLeftElement } from '@chakra-ui/react'
 
 
 
@@ -11,13 +11,15 @@ interface Data  {
     id : number
     name :string 
     username :string
-    jam:string
+    jam: Date
+    image: string
     description :string
     like: number
+    profile: string
 }
 
 const CardComp : React.FC<Data> = (props) => {
-    const { name, username, description, like, jam} = props
+    const { name, username, description, like, profile, image} = props
 
     const { isOpen, onOpen, onClose  } = useDisclosure()
 
@@ -36,62 +38,67 @@ const CardComp : React.FC<Data> = (props) => {
 
   return (
     <>
-        <Card mt={2} p={2} border={'darkgray'} borderColor={'black'} bg={'transparent'} w={'100%'}>
+        <Card mt={2} p={2} _hover={{bg:'#E5E5E5'}} border={'darkgray'} borderColor={'black'} bg={'transparent'} w={'100%'}>
             <Flex gap={4}>
-                <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
+                <Avatar name='gatot' src={profile}/>
                 <Box>
                 <Flex alignItems='center' gap={1}>
                     <Heading _hover={{fontdirect:'underline', cursor: 'pointer'}} size='m'>{name}</Heading>
-                    <Text>{username}</Text>
+                    <Text>@{username}</Text>
                     <Icon boxSize={1.5} mt={1} viewBox='0 0 200 200' color='gray.500'>
                     <path
                         fill='currentColor'
                         d='M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0'
                         />
                     </Icon>
-                    <Text color='gray'>{jam}</Text>
-                </Flex>
+                    <Text color='gray'>24h</Text>
+                </Flex> 
                 <NavLink to={'/status'}>
                     <Text textAlign={'justify'}>
                         {description}
                     </Text>
+                <Image src={image} borderRadius={'10px'} w={'50%'} my={2}/>
                 </NavLink>
-                <Image src={'https://bit.ly/sage-adebayo'} borderRadius={'10px'} w={'50%'} my={2}/>
                 <Flex gap={5}>
-                    <Button bg='transparent' onClick={handlelike} >
+                    <Button _hover={{bg:'#EAECEF'}} bg='transparent' onClick={handlelike} >
                         <AiOutlineHeart size={25} color={liked ? 'red' : 'gray' }/>
                         <Text ml={2} color='gray'>
                             {likes}
                         </Text>
                     </Button>
-                    {/* <NavLink to={'/reply'}>
-                    </NavLink> */}
-                    <Button onClick={onOpen} bg='trasnsparent'>
+                    <Button _hover={{bg:'#EAECEF'}} onClick={onOpen} bg='trasnsparent'>
                         <MdOutlineInsertComment size={25} color='gray'/>
                     </Button>
                 </Flex>
                 </Box> 
             </Flex>
         </Card>
-        <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader></ModalHeader>
+        <Modal isOpen={isOpen} onClose={onClose} >
+        <ModalOverlay/>
+        <ModalContent bg={'transparent'} _hover={{bg:'#E5E5E5'}} border={'darkgray'} >
+          <ModalHeader color={'gray'} _hover={{color:'black'}}>Reply</ModalHeader>
           <ModalCloseButton />
           <ModalBody my={2}>
             <Flex>
-            <Avatar name='gatot' src='https://bit.ly/sage-adebayo'/>
-            <Input variant='flushed' placeholder='What is happening?!' />
+            <Avatar name='gatot' src='https://bit.ly/sage-adebayo' mr={2}/>
+            <Input variant='flushed' color={'white'} _hover={{color:'black'}} placeholder='What is happening?!' />
             </Flex>    
           </ModalBody>
-
           <ModalFooter justifyContent={'space-between'}>
-                <Button _hover={{bg:'white'}} rounded={15} bg='#ffff'>
+            <InputGroup>
+                <InputLeftElement pointerEvents={'none'}>
                 <LuImagePlus size={30} color='#482AE3' />
-                </Button>
-                <Button _hover={{bg:'#6178D6', color:'black'}} rounded={20} color='white' bg='#482AE3' >
-                Post
-                </Button> 
+                </InputLeftElement>
+                <Input 
+                cursor={'pointer'}
+                w={"2px"}
+                type='file'
+                opacity={0}
+                name='image' />
+            </InputGroup>
+            <Button _hover={{bg:'#6178D6', color:'black'}} rounded={20} color='white' bg='#482AE3' >
+            Post
+            </Button> 
           </ModalFooter>
         </ModalContent>
       </Modal>

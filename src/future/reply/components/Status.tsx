@@ -21,7 +21,7 @@ const Status: React.FC = () => {
     }
   return (
     <>
-        <Card>
+        <Card bg={'transparent '} _hover={{bg:'#E5E5E5'}}>
             <NavLink to={'/'}>
               <Flex p={4} gap={2} mb={-4}>
                   <IoArrowBackOutline size={25} />
@@ -49,13 +49,13 @@ const Status: React.FC = () => {
                     </Icon>
                      Jul26, 2023</Text>
                 </Flex>
-                <Flex gap={5}>
-                    <Button _hover={{bg: 'white'}} bg='white' onClick={handlelike} ><AiOutlineHeart size={25} color={liked ? 'red' : 'gray' }/>
+                <Flex gap={5} mx={4}>
+                    <Button _hover={{bg: '#EAECEF'}} bg='transparent' onClick={handlelike} ><AiOutlineHeart size={25} color={liked ? 'red' : 'gray' }/>
                       <Text ml={2} color='gray'>
                           {likes}
                       </Text>
                     </Button>
-                    <Button _hover={{bg: 'white'}} bg='white'><MdOutlineInsertComment size={25} color='gray'/></Button>
+                    <Button _hover={{bg: '#EAECEF'}} bg='transparent'><MdOutlineInsertComment size={25} color='gray'/></Button>
                 </Flex>
                 <Box>
                   <Flex gap={1}  p={2}>

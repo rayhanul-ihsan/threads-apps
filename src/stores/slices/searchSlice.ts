@@ -1,12 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import  {IThread}  from "../../interface/thread"
 import { API } from "../../libs/api"
+import { IUser } from "../../interface/user"
 
-export const fetchThread = createAsyncThunk(
-    'thread/fetchThread',
+export const fetchSearch = createAsyncThunk(
+    'users/fetchSearch',
     async () => {
         try {
-            const response = await API.get('/thread')
+
+            const response = await API.get('/users')
             return response.data
           } catch (error) {
             throw error
@@ -14,38 +16,46 @@ export const fetchThread = createAsyncThunk(
     },
     )
 
-     interface threadState  {
-        data: IThread[],
+     interface userState  {
+        data: data,
         isLoading: Boolean,
         isError: Boolean
       } 
 
-    const initialState: threadState = {
-        data: [],
+    interface data {
+      message: string,
+      data: IUser[]
+    }
+
+    const initialState: userState = {
+        data: {
+          message : '',
+          data : []
+        },
         isLoading: false,
         isError: false
       } 
   
 
- const threadSlice = createSlice({
-    name: 'thread',
+ const userSlice = createSlice({
+    name: 'users',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchThread.pending, (state) => {
+        builder.addCase(fetchSearch.pending, (state) => {
             state.isLoading = true
         })
-        builder.addCase(fetchThread.fulfilled, (state, action) => {
+        builder.addCase(fetchSearch.fulfilled, (state, action) => {
             state.isLoading = false
             state.data = action.payload
+            console.log(state.data)
           })
-        builder.addCase(fetchThread.rejected, (state) => {
+        builder.addCase(fetchSearch.rejected, (state) => {
             state.isLoading = false
             state.isError = true
-            state.data = []
         })
        
     }
 })
 
-export default threadSlice.reducer
+export default userSlice.reducer
