@@ -13,14 +13,11 @@ interface Data {
   id: number | undefined;
   name: string | undefined;
   username: string | undefined;
-  image: string | undefined;
+  image: string | undefined; 
   follow?: boolean;
   isFollowing?: boolean;
 }
 
-const handleGetUsers = () => {
-    
-};
 
 const DaftarFollowers: React.FC<Data> = (props) => {
   const { id, name, username, image } = props;

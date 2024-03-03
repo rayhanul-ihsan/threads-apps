@@ -29,7 +29,7 @@ const SideBar :React.FC = () => {
         <Box >
           <Flex justifyContent='space-between' alignItems='center'>
           <NavLink to={'/'}>
-            <Heading _hover={{color:'#6178D6'}} color='#482AE3' ml={4} p={4}>Toa</Heading>
+            <Heading _hover={{color:'#6178D6'}} color='#482AE3' ml={4} p={4}>Circle</Heading>
           </NavLink>
           </Flex>
             <NavLink to={'/'}>

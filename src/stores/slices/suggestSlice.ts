@@ -13,7 +13,7 @@ export const fetchUsers = createAsyncThunk(
           } catch (error) {
             throw error
           }
-    },
+    }, 
     )
 
      interface userState  {
