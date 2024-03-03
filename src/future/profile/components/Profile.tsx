@@ -12,8 +12,9 @@ const Profile:React.FC =() => {
   // let secondaryText = useColorModeValue("gray.400", "gray.400");
 
   const auth = useSelector((state: RootState) => state.auth)
-
   const dispatch = useDispatch() 
+
+  // const []
 
   useEffect(() => {
     const stroreAuthData = localStorage.getItem('authDate')

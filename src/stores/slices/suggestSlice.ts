@@ -48,7 +48,6 @@ export const fetchUsers = createAsyncThunk(
         builder.addCase(fetchUsers.fulfilled, (state, action) => {
             state.isLoading = false
             state.data = action.payload
-            console.log(state.data)
           })
         builder.addCase(fetchUsers.rejected, (state) => {
             state.isLoading = false

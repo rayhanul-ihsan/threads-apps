@@ -80,7 +80,7 @@ const ProfileDetailComp: React.FC = () => {
   const filterThread = getThread.data.filter(
     (item) => item.author.user_name == auth.user_name
   )
-  console.log("fil", filterThread)
+  // console.log("fil", filterThread)
 
   return (
     <>

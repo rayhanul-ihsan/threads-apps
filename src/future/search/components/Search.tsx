@@ -19,23 +19,23 @@ import DftrFollowers from "../../../components/DftrFollowers";
 import DaftarFollowers from "../../../components/Daftar-followers";
 
 const Search = () => {
-  const {handleChange, data} = useSearch();
-  console.log(data)
-  // const { filteredUsers, searchUsers } = useSearch();
-  // const [searchQuery, setSearchQuery] = useState("");
+  // const {handleChange, data} = useSearch();
+  // console.log(data)
+  const { filteredUsers, searchUsers } = useSearch();
+  const [searchQuery, setSearchQuery] = useState("");
 
-  // // console.log("filteredUsers:", filteredUsers);
+  // console.log("filteredUsers:", filteredUsers);
 
-  // const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { value } = e.target;
-  //   setSearchQuery(value);
-  //   searchUsers(value);
-  // };
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearchQuery(value);
+    searchUsers(value);
+  };
 
-  // useEffect(() => {
-  //   if (!searchQuery) return;
-  //   setSearchQuery("");
-  // }, [searchQuery]);
+  useEffect(() => {
+    if (!searchQuery) return;
+    setSearchQuery("");
+  }, [searchQuery]);
 
   const [foll, setFoll] = useState<boolean>(false);
 
@@ -72,11 +72,11 @@ const Search = () => {
             type={"text"}
             placeholder=""
             // value={searchQuery}
-            onChange={handleChange}
+            onChange={handleSearchInputChange}
           />
         </InputGroup>
 
-        {/* {filteredUsers?.map((item) => (
+        {filteredUsers?.map((item) => (
           <Box
             my={2}
             _hover={{ bg: "gray.200" }}
@@ -114,7 +114,7 @@ const Search = () => {
               </Button>
             </Flex>
           </Box>
-        ))} */}
+        ))}
         {/* <DftrFollowers/>         */}
       </Card>
     </>

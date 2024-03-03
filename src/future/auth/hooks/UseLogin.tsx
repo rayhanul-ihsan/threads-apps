@@ -23,18 +23,9 @@ function handleChange(e: ChangeEvent<HTMLInputElement>){
 
 async function handleLogin() {
     try {
-        // console.log(form);
-        
         const response = await API.post('/auth/login', form)
 
         dispatch(AUTH_LOGIN(response.data))
-        console.log(response.data)
-        // console.log(form)
-
-        localStorage.setItem('authDate',   JSON.stringify(response.data.user))
-        localStorage.setItem('token',   response.data.token)
-
-
         navigate("/")
     } catch (error) {
         throw(error)        
