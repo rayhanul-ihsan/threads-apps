@@ -5,13 +5,27 @@ import {
   Box,
   Button,
   Card,
+  Circle,
   Flex,
   Heading,
   Icon,
   Image,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Text,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
+import { FaEdit } from "react-icons/fa";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../stores/types/rootState";
@@ -33,6 +47,8 @@ interface Data {
 const ProfileFromSuggest = (props: Data) => {
   const { full_name, user_name, bio, profile_picture, image_cover } = props;
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
@@ -73,7 +89,8 @@ const ProfileFromSuggest = (props: Data) => {
                 mt="-38px"
                 borderRadius="50%"
               />
-              <NavLink to={"/edit-profile"}>
+              {/* <NavLink to={"/edit-profile"}>
+                </NavLink> */}
                 <Button
                   boxSize={"fit-content"}
                   fontSize={13}
@@ -83,10 +100,10 @@ const ProfileFromSuggest = (props: Data) => {
                   bg={"transparent"}
                   mt={1}
                   alignItems={"end"}
+                  onClick={onOpen}
                 >
                   Edit Profile
                 </Button>
-              </NavLink>
             </Flex>
             <Box mb={2} textAlign={"left"} w={"100%"}>
               <Text textAlign={"left"} fontWeight="700">
@@ -124,6 +141,163 @@ const ProfileFromSuggest = (props: Data) => {
             </Flex>
           </Flex>
         </Card>
+
+        <Modal
+          isCentered
+          size="xl"
+          onClose={onClose}
+          isOpen={isOpen}
+          motionPreset="slideInBottom"
+        >
+          <ModalOverlay />
+
+          <ModalContent bg="#1D1D1D" color="white">
+            <ModalHeader>Edit Profile</ModalHeader>
+
+            <ModalCloseButton />
+
+            <ModalBody w="100%" margin="auto">
+              <form>
+                <InputGroup w="100%" _hover={{ color: "white" }}>
+                  <InputLeftElement
+                    pointerEvents="none"
+                    cursor="pointer"
+                    w="100%"
+                    h="200px"
+                  >
+                    <Image
+                      src="https://wallpapers.com/images/high/blue-gradient-background-gu71dwd19no9ra2v.webp"
+                      rounded="lg"
+                      w="100%"
+                      h="200px"
+                      objectFit="cover"
+                    />
+                  </InputLeftElement>
+
+                  <Input
+                    opacity="0"
+                    type="file"
+                    name="cover_photo"
+                    cursor="pointer"
+                    w="100%"
+                    placeholder="edit cover"
+                    _placeholder={{ opacity: 1, color: "red" }}
+                    zIndex="100"
+                    accept="image/*"
+                    // onChange={handleCover}
+                  />
+                  <InputRightElement>
+                    <Text
+                      bg="#1D1D1D"
+                      color="white"
+                      p="5"
+                      rounded="full"
+                      fontSize="20px"
+                    >
+                      <FaEdit />
+                    </Text>
+                  </InputRightElement>
+                </InputGroup>
+
+                <InputGroup
+                  w="150px"
+                  bg="#1D1D1D"
+                  mt="80px"
+                  rounded="full"
+                  color="green.500"
+                  cursor="pointer"
+                  _hover={{ color: "white" }}
+                >
+                  <InputLeftElement
+                    pointerEvents="none"
+                    cursor="pointer"
+                    w="150px"
+                    h="150px"
+                  >
+                    <Circle>
+                      <Image
+                        src="https://i.pinimg.com/564x/c0/c8/17/c0c8178e509b2c6ec222408e527ba861.jpg"
+                        rounded="full"
+                        w="120px"
+                        h="120px"
+                        objectFit="cover"
+                      />
+                    </Circle>
+                  </InputLeftElement>
+
+                  <Input
+                    opacity="0"
+                    type="file"
+                    name="picture"
+                    cursor="pointer"
+                    w="150px"
+                    h="150px"
+                    accept="image/*"
+                    // onChange={handlePicture}
+                  />
+                </InputGroup>
+
+                <Input
+                  my="3"
+                  rounded="none"
+                  borderRight="none"
+                  borderLeft="none"
+                  borderTop="none"
+                  borderBottom="1px"
+                  focusBorderColor="#1D1D1D"
+                  // value={inputData.name}
+                  placeholder="Name"
+                  name="name"
+                  // onChange={handleChange}
+                />
+                <Input
+                  rounded="none"
+                  borderRight="none"
+                  borderLeft="none"
+                  borderTop="none"
+                  borderBottom="1px"
+                  focusBorderColor="#1D1D1D"
+                  // value={inputData.username}
+                  placeholder="Username"
+                  name="username"
+                  // onChange={handleChange}
+                />
+                <Input
+                  my="3"
+                  rounded="none"
+                  borderRight="none"
+                  borderLeft="none"
+                  borderTop="none"
+                  borderBottom="1px"
+                  focusBorderColor="#1D1D1D"
+                  // value={inputData.bio}
+                  placeholder="Bio"
+                  name="bio"
+                  // onChange={handleChange}
+                />
+              </form>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button
+                colorScheme="red"
+                rounded="full"
+                mr={5}
+                // onClick={onClose}
+              >
+                Cancel
+              </Button>
+
+              <Button
+                colorScheme="green"
+                rounded="full"
+                // onClick={handleSubmit}
+              >
+                Save
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </Box>
     </>
   );
