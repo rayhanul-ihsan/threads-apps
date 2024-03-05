@@ -1,15 +1,18 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { combineReducers } from "@reduxjs/toolkit";
 import { authSlice } from "./slices/authSlice";
 import threadReducer from './slices/threadSlice'
 import userReducer from "./slices/suggestSlice"
 import { userSlice } from "./slices/userSlice";
+import {threadSlices} from "./slices/replySlice"
 
-export const { AUTH_CHECK, AUTH_LOGIN, AUTH_ERROR,AUTH_LOGOUT} = authSlice.actions
+export const { AUTH_CHECK, AUTH_LOGIN} = authSlice.actions
 export const { GET_USERS} = userSlice.actions
+export const { GET_ONE_THREAD } = threadSlices.actions;
 
 
 export const authReducer = authSlice.reducer
 export const searchReducer = userSlice.reducer
+export const replyReducer =  threadSlices.reducer
 
 // export const threaReducer = threadSlice.reducer
 
@@ -17,7 +20,8 @@ const rootReducer = combineReducers({
     auth: authReducer,
     suggest: userReducer,
     thread: threadReducer,
-    user: searchReducer
+    user: searchReducer,
+    reply: replyReducer
 
 })
 

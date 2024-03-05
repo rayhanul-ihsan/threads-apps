@@ -47,7 +47,7 @@ export const authSlice = createSlice({
       state.threads = threads;
     },
     AUTH_CHECK: (state, action) => {
-      console.log(action);
+      // console.log(action);
       
       const {
         id,
@@ -69,11 +69,11 @@ export const authSlice = createSlice({
       state.bio = bio;
       state.threads = threads;
     },
-    AUTH_ERROR: () => {
-      localStorage.removeItem("token");
-    },
-    AUTH_LOGOUT: () => {
-      localStorage.removeItem("token");
-    },
+    // AUTH_ERROR: () => {
+    //   localStorage.removeItem("token");
+    // },
+    // AUTH_LOGOUT: () => {
+    //   localStorage.removeItem("token");
+    // },
   },
 });

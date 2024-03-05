@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LayoutProfile from "../layouts/LayoutProfile";
-import ProfileDetailComp from "../future/profile/components/ProfileDetailComp";
-import ProfileFromSuggest from "../future/profile/components/ProfileFromSuggest";
+import ProfileDetailComp from "../features/profile/components/ProfileDetailComp";
+import ProfileFromSuggest from "../features/profile/components/ProfileFromSuggest";
 import { useParams } from "react-router-dom";
 import { API } from "../libs/api";
 import { IUser } from "../interface/user";

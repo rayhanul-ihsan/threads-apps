@@ -67,7 +67,7 @@ export default function PostThread() {
       // }
       formData.append("content", form.content);
       formData.append("image", form.image as File);
-
+ 
       const response = await API.post("/thread", formData, {
         headers: {
           "Content-Type": "multipart/form-data",

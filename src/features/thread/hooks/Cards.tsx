@@ -33,8 +33,8 @@ export default function Cards() {
   },[])
 
   return (
-    <div>
-        
+    <>
+        {getThread.isLoading && <h1>Loading...</h1>}
         {getThread.data.map((item) => (
                 <CardComp
                 key={item.id}
@@ -50,6 +50,6 @@ export default function Cards() {
                 />
             ))
         }
-    </div>
+    </>
   )
 }

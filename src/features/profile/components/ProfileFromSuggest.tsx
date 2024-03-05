@@ -26,14 +26,11 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FaEdit } from "react-icons/fa";
-import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../stores/types/rootState";
-import { AUTH_CHECK } from "../../../stores/rootReducer";
 import { fetchThread } from "../../../stores/slices/threadSlice";
 import CardComp from "../../thread/components/CardComp";
 import { API } from "../../../libs/api";
-import { IUser } from "../../../interface/user";
 
 interface Data {
   id?: number;
@@ -49,6 +46,33 @@ const ProfileFromSuggest = (props: Data) => {
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // // thread
+
+  const handleGetThread = async () => {
+    try {
+      const response = await API.get("/thread");
+      // console.log("respomse",response.data)
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const dispatch = useDispatch();
+  // const [data, setData] = useState<IThread[]>([]);
+
+  const getThread = useSelector((state: RootState) => state.thread);
+  // console.log("threadProfile", getThread);
+
+  useEffect(() => {
+    handleGetThread();
+    dispatch(fetchThread());
+  }, []);
+
+  const filterThread = getThread.data.filter(
+    (item) => item.author.user_name == user_name
+  );
+  // console.log("fil", filterThread)
 
   return (
     <>
@@ -91,19 +115,19 @@ const ProfileFromSuggest = (props: Data) => {
               />
               {/* <NavLink to={"/edit-profile"}>
                 </NavLink> */}
-                <Button
-                  boxSize={"fit-content"}
-                  fontSize={13}
-                  rounded={15}
-                  border="2px"
-                  borderColor={"black"}
-                  bg={"transparent"}
-                  mt={1}
-                  alignItems={"end"}
-                  onClick={onOpen}
-                >
-                  Edit Profile
-                </Button>
+              <Button
+                boxSize={"fit-content"}
+                fontSize={13}
+                rounded={15}
+                border="2px"
+                borderColor={"black"}
+                bg={"transparent"}
+                mt={1}
+                alignItems={"end"}
+                onClick={onOpen}
+              >
+                Edit Profile
+              </Button>
             </Flex>
             <Box mb={2} textAlign={"left"} w={"100%"}>
               <Text textAlign={"left"} fontWeight="700">
@@ -141,6 +165,19 @@ const ProfileFromSuggest = (props: Data) => {
             </Flex>
           </Flex>
         </Card>
+        {filterThread?.map((item) => (
+          <CardComp
+            key={item.id}
+            id={item.id}
+            name={item.author.full_name}
+            username={item.author.user_name}
+            profile={item.author.profile_picture}
+            image={item.image}
+            jam={item.createdAt}
+            description={item.content}
+            like={item.likes}
+          />
+        ))}
 
         <Modal
           isCentered

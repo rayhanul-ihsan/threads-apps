@@ -1,11 +1,11 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import SideBar from '../components/SideBar'
-import Profile from '../future/profile/components/Profile'
+import Profile from '../features/profile/components/Profile'
 import { Box, Flex } from '@chakra-ui/react'
 import NavbarComp from '../components/NavbarComp'
-import Suggests from '../future/suggests/hooks/Suggests'
-import BoxSuggest from '../future/suggests/components/BoxSuggest'
+import Suggests from '../features/suggests/hooks/Suggests'
+import BoxSuggest from '../features/suggests/components/BoxSuggest'
 
 interface LayoutProp {
     children: React.ReactNode

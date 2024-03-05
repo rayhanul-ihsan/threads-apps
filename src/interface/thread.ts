@@ -5,7 +5,7 @@ export interface IThread {
         user_name: string
     },
     content: string,
-    createdAt: Date,
+    createdAt: string,
     image: string,
     isLiked: boolean,
     id: number,
