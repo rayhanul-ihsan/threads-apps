@@ -78,7 +78,7 @@ const Status = (props: Id) => {
           <Text fontSize="" mt={-4} p={4} textAlign={"justify"}>
             {status.content}
           </Text>
-          <Image src={status.image} borderRadius={"10px"} w={"50%"} my={2} />
+          <Image src={status.image} alt="image" m={6} borderRadius={"10px"} w={"50%"} my={2} />
           <Flex mt={-6} mb={-4}>
             <Text fontSize="14px" p={4}>
               {status.createdAt}
