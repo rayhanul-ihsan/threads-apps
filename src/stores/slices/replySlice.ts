@@ -19,8 +19,8 @@ const initialThreadsState: { threads: IThread } = {
   };
   
 
-export const threadSlices = createSlice({
-    name: "threads",
+export const replySlicec = createSlice({
+    name: "reply",
     initialState: initialThreadsState,
     reducers: {
       GET_ONE_THREAD: (state, action) => {

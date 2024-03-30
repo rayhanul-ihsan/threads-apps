@@ -89,7 +89,7 @@ const CardComp: React.FC<Data> = (props) => {
                   d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
                 />
               </Icon>
-              <Text color="gray">{jam}</Text>
+              <Text color="gray">12h</Text>
             </Flex>
             <NavLink to={`/status/${id}`}>
               <Text textAlign={"justify"}>{description}</Text>
