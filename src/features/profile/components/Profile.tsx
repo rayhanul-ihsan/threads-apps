@@ -9,8 +9,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../stores/types/rootState";
+import { useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
 import { AUTH_CHECK } from "../../../stores/rootReducer";
 import { API } from "../../../libs/api";
 
@@ -19,17 +18,14 @@ const Profile: React.FC = () => {
   // let mainText = useColorModeValue("gray.800", "white");
   // let secondaryText = useColorModeValue("gray.400", "gray.400");
 
-  const auth = useSelector((state: RootState) => state.auth);
-  const dispatch = useDispatch();
+  const auth = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
 
-  // const []
 
   async function getProfile() {
     const respone = await API.get("user/me/current");
-    // console.log(respone.data);
     dispatch(AUTH_CHECK({ user: respone.data }));
   }
-  // console.log("auth", auth)
   useEffect(() => {
     getProfile();
   }, [dispatch, auth]);

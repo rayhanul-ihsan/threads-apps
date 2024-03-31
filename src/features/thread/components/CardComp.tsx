@@ -25,9 +25,9 @@ import {
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../../stores/types/rootState";
-import { AUTH_CHECK } from "../../../stores/rootReducer";
+// import { AUTH_CHECK } from "../../../stores/rootReducer";
 
 interface Data {
   id: number;

@@ -1,30 +1,20 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  Flex,
-  Heading,
-  Text,
-} from "@chakra-ui/react";
-import React, { useState } from "react";
+import { Avatar, Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { IFollow } from "../../../interface/user";
 
-interface Data {
-  id: number | undefined;
-  name: string | undefined;
-  username: string | undefined;
-  image: string | undefined; 
-  follow?: boolean;
-  isFollowing?: boolean;
-}
-
-
-const DaftarFollowers: React.FC<Data> = (props) => {
-  const { id, name, username, image } = props;
-
-  console.log(props);
+export default function FollowCard(props: IFollow) {
+  // console.log("props", props);
   const [foll, setFoll] = useState<boolean>(false);
-
+  const [followed, setFollowed] = useState<boolean>(false);
+  useEffect(() => {
+    
+    if (followed) {
+      setFoll(true);
+    } else {
+      setFoll(false);
+    }
+  })
+ 
   const handleFollowers = () => {
     if (!foll) {
       setFoll(true);
@@ -48,11 +38,11 @@ const DaftarFollowers: React.FC<Data> = (props) => {
           alignItems={"center"}
         >
           <Flex alignItems={"center"} gap={1}>
-            <Avatar name="gatot" src={image} />
+            <Avatar name="gatot" src={props.profile_picture} />
             <Flex flexDirection="column">
-              <Heading size="m">{name}</Heading>
+              <Heading size="m">{props.full_name}</Heading>
               <Text mt={-2} fontSize="12px" textColor="GrayText">
-                @{username}
+                @{props.user_name}
               </Text>
             </Flex>
           </Flex>
@@ -66,12 +56,10 @@ const DaftarFollowers: React.FC<Data> = (props) => {
             alignItems="center"
             onClick={handleFollowers}
           >
-            {foll ? "Following" : "Follow"}
+            {foll ? "unfollow" : "Follow"}
           </Button>
         </Flex>
       </Box>
     </>
   );
-};
-
-export default DaftarFollowers;
+}

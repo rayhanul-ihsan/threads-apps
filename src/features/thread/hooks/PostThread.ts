@@ -53,7 +53,6 @@ export default function PostThread() {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      // console.log(response)
       window.location.reload();
 
     }
@@ -74,7 +73,6 @@ export default function PostThread() {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      // console.log(response)
       window.location.reload();
     } catch (error) {
       console.log(error);

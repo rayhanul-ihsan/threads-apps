@@ -17,7 +17,7 @@ interface threadState {
   isError: Boolean;
 }
 
-const initialState: threadState = {
+const initialState: threadState = { 
   data: [],
   isLoading: false,
   isError: false,

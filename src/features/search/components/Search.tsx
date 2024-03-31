@@ -15,8 +15,8 @@ import { FaUser } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import { useSearch } from "../hooks/useSearch";
 import React, { useEffect, useState } from "react";
-import DftrFollowers from "../../../components/DftrFollowers";
-import DaftarFollowers from "../../../components/Daftar-followers";
+import DftrFollowers from "../../follows/hooks/FollowCard";
+import DaftarFollowers from "../../follows/hooks/FollowCard";
 
 const Search = () => {
   // const {handleChange, data} = useSearch();

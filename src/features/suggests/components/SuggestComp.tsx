@@ -3,27 +3,15 @@ import {
   Avatar,
   Box,
   Button,
-  Card,
   Flex,
   Heading,
   Text,
 } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../stores/types/rootState";
-import { fetchUsers } from "../../../stores/slices/suggestSlice";
 import { NavLink } from "react-router-dom";
+import { IFollow } from "../../../interface/user";
 
-interface Data {
-  id: number | undefined;
-  name: string | undefined;
-  username: string | undefined;
-  image: string | undefined;
-  follow?: boolean;
-  isFollowing?: boolean;
-}
 
-const SuggestComp: React.FC<Data> = (props) => {
-  const {id, name, username, image, follow, isFollowing } = props;
+export default function SuggestComp(props: IFollow){
   const [foll, setFoll] = useState<boolean>(false);
 
   const handleFollow = () => {
@@ -50,13 +38,13 @@ const SuggestComp: React.FC<Data> = (props) => {
           justifyContent="space-between"
           alignItems={"center"}
         >
-          <NavLink to={`/detail-profile/${id}`}>
+          <NavLink to={`/detail-profile/${props.id}`}>
             <Flex alignItems={"center"} gap={1}>
-              <Avatar name="gatot" src={image} />
+              <Avatar name="avatar" src={props.profile_picture} />
               <Flex flexDirection="column">
-                <Heading size="m">{name}</Heading>
+                <Heading size="m">{props.full_name}</Heading>
                 <Text mt={-2} fontSize="12px" textColor="GrayText">
-                  @{username}
+                  @{props.user_name}
                 </Text>
               </Flex>
             </Flex>
@@ -80,4 +68,4 @@ const SuggestComp: React.FC<Data> = (props) => {
   );
 };
 
-export default SuggestComp;
+

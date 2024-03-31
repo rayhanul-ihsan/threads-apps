@@ -23,3 +23,14 @@ export interface IUserLogin {
     // email: string
     password: string
 }
+
+export interface IFollow{
+    id?: number
+    full_name?: string
+    user_name?: string
+    email?: string
+    profile_picture?: string
+    image_cover?: string
+    bio?: string
+    
+}

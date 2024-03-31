@@ -14,12 +14,12 @@ const initialThreadsState: { threads: IThread } = {
       isLiked: false,
       id: 0,
       likes: 0,
-      replies: 0,
+      replies: 0, 
     },
   };
   
 
-export const replySlicec = createSlice({
+export const replySlice = createSlice({
     name: "reply",
     initialState: initialThreadsState,
     reducers: {

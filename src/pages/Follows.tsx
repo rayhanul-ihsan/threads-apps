@@ -1,7 +1,7 @@
 import React from 'react'
 
 import FollowsComp from '../features/follows/components/FollowsComp';
-import DftrFollowers from '../components/DftrFollowers';
+import DftrFollowers from '../features/follows/hooks/FollowCard';
 import Layout from '../layouts/Layout';
 
 

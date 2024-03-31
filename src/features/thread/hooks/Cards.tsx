@@ -5,7 +5,7 @@ import { API } from '../../../libs/api'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchThread}  from '../../../stores/slices/threadSlice'
 import { ThunkDispatch } from '@reduxjs/toolkit'
-import { RootState } from '../../../stores/types/rootState'
+import { AppDispatch, RootState } from '../../../stores/types/rootState'
 
 
 
@@ -21,7 +21,7 @@ export default function Cards() {
     }
   }
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<AppDispatch>()
 
   const getThread = useSelector((state: RootState)=> state.thread)
   // console.log('getthread', getThread)

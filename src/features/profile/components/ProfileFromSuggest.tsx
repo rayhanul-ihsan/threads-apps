@@ -26,8 +26,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { FaEdit } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../stores/types/rootState";
+import {useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
 import { fetchThread } from "../../../stores/slices/threadSlice";
 import CardComp from "../../thread/components/CardComp";
 import { API } from "../../../libs/api";
@@ -52,17 +51,14 @@ const ProfileFromSuggest = (props: Data) => {
   const handleGetThread = async () => {
     try {
       const response = await API.get("/thread");
-      // console.log("respomse",response.data)
       return response.data;
     } catch (error) {
       console.log(error);
     }
   };
-  const dispatch = useDispatch();
-  // const [data, setData] = useState<IThread[]>([]);
+  const dispatch = useAppDispatch();
 
-  const getThread = useSelector((state: RootState) => state.thread);
-  // console.log("threadProfile", getThread);
+  const getThread = useAppSelector((state) => state.thread);
 
   useEffect(() => {
     handleGetThread();
@@ -72,7 +68,6 @@ const ProfileFromSuggest = (props: Data) => {
   const filterThread = getThread.data.filter(
     (item) => item.author.user_name == user_name
   );
-  // console.log("fil", filterThread)
 
   return (
     <>
