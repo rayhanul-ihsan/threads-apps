@@ -10,7 +10,7 @@ export interface IThread {
     isLiked: boolean,
     id: number,
     likes: number,
-    replies: number
+    replies: any[] 
 }
 
 export interface IPostThread {

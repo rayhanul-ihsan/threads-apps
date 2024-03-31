@@ -2,22 +2,17 @@ import React, { useState } from "react";
 
 import {
   Avatar,
-  Box,
   Button,
   Card,
   Flex,
   Heading,
   Icon,
   Image,
-  Input,
   Text,
 } from "@chakra-ui/react";
 
-import { IoArrowBackOutline } from "react-icons/io5";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdOutlineInsertComment } from "react-icons/md";
-import { LuImagePlus } from "react-icons/lu";
-import { NavLink } from "react-router-dom";
 
 interface Data {
   id: number;
@@ -59,7 +54,7 @@ const Coment: React.FC<Data> = (props) => {
                   d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
                 />
               </Icon>
-              <Text color="gray">{jam}</Text>
+              <Text color="gray">12h</Text>
             </Flex>
             <Text fontSize="14" mt={-4} py={4} textAlign={"justify"}>
               {description}

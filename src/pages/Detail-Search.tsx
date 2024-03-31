@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout';
 
 const DetailSearch : React.FC = () => {
   return (
-    <>
+    <> 
       <Layout>
         <Search/>
       </Layout>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Avatar,
@@ -20,10 +20,9 @@ import { MdOutlineInsertComment } from "react-icons/md";
 import { LuImagePlus } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
 import { useReply } from "../hooks/useReply";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../stores/types/rootState";
-import { AUTH_CHECK } from "../../../stores/rootReducer";
+import { useAppSelector } from "../../../stores/types/rootState";
 import PostReply from "../hooks/PostReply";
+import Coment from "./Coment";
 
 interface Id {
   id: number;
@@ -34,11 +33,11 @@ const Status = (props: Id) => {
   useEffect(() => {
     getThread(id);
   }, []);
-
-  const status = useSelector((state: RootState) => state.reply.threads);
-
+  const status = useAppSelector((state) => state.reply.threads);
+  console.log("status:", status);
+  
   // auth
-  const auth = useSelector((state: RootState) => state.auth);
+  const auth = useAppSelector((state) => state.auth);
   // auth
 
   // postreply
@@ -149,6 +148,19 @@ const Status = (props: Id) => {
           </Box>
         </Card>
       </form>
+        {status.replies.map((reply) => (
+          <Coment
+            key={reply.id}
+            id={reply.id}
+            name={reply.author.full_name}
+            username={reply.author.user_name}
+            image={reply.author.profile_picture}
+            jam={reply.createdAt}
+            description={reply.content}
+            like={reply.likes}
+            profile={reply.author.user_name}
+          />
+        ))}
     </>
   );
 };

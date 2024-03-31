@@ -7,7 +7,7 @@ export const fetchThread = createAsyncThunk("thread/fetchThread", async () => {
     const response = await API.get("/thread");
     return response.data;
   } catch (error) {
-    throw error;
+    throw error; 
   }
 });
 

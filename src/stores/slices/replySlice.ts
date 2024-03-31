@@ -1,5 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { IThread } from "../../interface/thread";
+
+export const fetchReplyThread = createAsyncThunk(
+  "reply/fetchReplyThread",
+  async (_, { rejectWithValue }) => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
+)
 
 const initialThreadsState: { threads: IThread } = {
     threads: {
@@ -14,7 +25,7 @@ const initialThreadsState: { threads: IThread } = {
       isLiked: false,
       id: 0,
       likes: 0,
-      replies: 0, 
+      replies: [], 
     },
   };
   

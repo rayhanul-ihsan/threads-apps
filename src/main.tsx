@@ -15,7 +15,7 @@ export const store = configureStore({
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-        <ChakraProvider>
+        <ChakraProvider theme={ex}>
           <Provider store={store}>
             <App />
           </Provider>

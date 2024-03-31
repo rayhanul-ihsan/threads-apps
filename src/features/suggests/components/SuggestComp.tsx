@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Avatar,
   Box,
@@ -10,10 +10,9 @@ import {
 import { NavLink } from "react-router-dom";
 import { IFollow } from "../../../interface/user";
 
-
 export default function SuggestComp(props: IFollow){
-  const [foll, setFoll] = useState<boolean>(false);
-
+  const [foll, setFoll] = React.useState<boolean>(false);
+  
   const handleFollow = () => {
     if (!foll) {
       setFoll(true);
@@ -22,11 +21,9 @@ export default function SuggestComp(props: IFollow){
     }
   };
 
-  return (
+  return ( 
     <>
       <Box
-        // mx={2}
-        // my={2}
         borderRadius="20px"
         _hover={{ bg: "#EAECEF" }}
         w="100%"

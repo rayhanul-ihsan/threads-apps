@@ -1,10 +1,8 @@
 import React from 'react'
 
 import Layout from '../layouts/Layout';
-import Coment from '../features/reply/components/Coment';
 import Status from '../features/reply/components/Status';
-import { useParams } from 'react-router-dom';
-import Replys from '../features/reply/hooks/Replys';
+import { useParams } from 'react-router-dom';2
 
 
 
@@ -15,7 +13,6 @@ const DetailStatus : React.FC = () => {
     <>
       <Layout>
         <Status id={parseInt(id!)}/> 
-        <Replys/>
       </Layout>
     </>
   )

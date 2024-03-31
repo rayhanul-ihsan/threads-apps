@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
 import { Card, Heading } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
 import { fetchFollow } from "../../../stores/slices/followSlice";
-import { AppDispatch, RootState } from "../../../stores/types/rootState";
+import { useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
 import SuggestComp from "./SuggestComp";
 
 const BoxSuggest: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
 
-  const getSuggest = useSelector((state: RootState) => state.follow);
-  console.log("data:", getSuggest)
+  const getSuggest = useAppSelector((state) => state.follow);
 
   useEffect(() => {
     dispatch(fetchFollow());

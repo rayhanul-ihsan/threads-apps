@@ -1,4 +1,3 @@
-import { RiUserSearchLine } from "react-icons/ri";
 import {
   Avatar,
   Box,
@@ -15,8 +14,6 @@ import { FaUser } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import { useSearch } from "../hooks/useSearch";
 import React, { useEffect, useState } from "react";
-import DftrFollowers from "../../follows/hooks/FollowCard";
-import DaftarFollowers from "../../follows/hooks/FollowCard";
 
 const Search = () => {
   // const {handleChange, data} = useSearch();
@@ -76,30 +73,32 @@ const Search = () => {
           />
         </InputGroup>
 
-        {filteredUsers?.map((item) => (
-          <Box
-            my={2}
-            _hover={{ bg: "gray.200" }}
-            w={"100%"}
-            borderBlock={2}
-            borderColor={"black"}
-            key={item.id}
-          >
+        <Box
+          my={2}
+          _hover={{ bg: "gray.200" }}
+          w={"100%"}
+          borderBlock={2}
+          borderColor={"black"}
+        >
+          {filteredUsers?.map((item) => (
             <Flex
               gap={1}
               p={2}
               justifyContent="space-between"
               alignItems={"center"}
+              key={item.id}
             >
-              <Flex alignItems={"center"} gap={1}>
-                <Avatar name="gatot" src={item.profile_picture} />
-                <Flex flexDirection="column">
-                  <Heading size="m">{item.full_name}</Heading>
-                  <Text mt={-2} fontSize="12px" textColor="GrayText">
-                    @{item.user_name}
-                  </Text>
+              <NavLink to={`/detail-profile/${item.id}`}>
+                <Flex alignItems={"center"} gap={1}>
+                  <Avatar name="gatot" src={item.profile_picture} />
+                  <Flex flexDirection="column">
+                    <Heading size="m">{item.full_name}</Heading>
+                    <Text mt={-2} fontSize="12px" textColor="GrayText">
+                      @{item.user_name}
+                    </Text>
+                  </Flex>
                 </Flex>
-              </Flex>
+              </NavLink>
               <Button
                 boxSize={"fit-content"}
                 fontSize={13}
@@ -113,9 +112,8 @@ const Search = () => {
                 {foll ? "Following" : "Follow"}
               </Button>
             </Flex>
-          </Box>
-        ))}
-        {/* <DftrFollowers/>         */}
+          ))}
+        </Box>
       </Card>
     </>
   );
