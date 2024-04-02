@@ -36,7 +36,6 @@ const DetailProfile: React.FC = () => {
   return (
     <>
       <LayoutProfile>
-        {/* <ProfileDetailComp/> */}
         <ProfileFromSuggest 
           bio={getUser?.bio}
           full_name={getUser?.full_name}
@@ -44,7 +43,6 @@ const DetailProfile: React.FC = () => {
           profile_picture={getUser?.profile_picture}
           user_name={getUser?.user_name}
         />
-        {/* <Text>tes</Text> */}
       </LayoutProfile>
     </>
   );

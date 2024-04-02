@@ -7,7 +7,7 @@ export const fetchReplyThread = createAsyncThunk(
     try {
       
     } catch (error) {
-      
+      return rejectWithValue(error);
     }
   }
 )
@@ -26,6 +26,7 @@ const initialThreadsState: { threads: IThread } = {
       id: 0,
       likes: 0,
       replies: [], 
+      reply: 0
     },
   };
   

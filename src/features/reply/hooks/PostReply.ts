@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { IPostThread } from "../../../interface/thread";
 import { API } from "../../../libs/api";
+import { useParams } from "react-router-dom";
 
 export default function PostReply() {
+    const {id} = useParams()
+
     const [form, setForm] = useState<IPostThread>({
         content: "",
         image: null,
@@ -29,6 +32,7 @@ export default function PostReply() {
 
             formData.append("content", form.content);
             formData.append("image", form.image as File);
+            formData.append("thread", id as string);
 
             const response = await API.post("/reply/thread", formData, {
                 headers: {

@@ -35,7 +35,7 @@ const Status = (props: Id) => {
   }, []);
   const status = useAppSelector((state) => state.reply.threads);
   console.log("status:", status);
-  
+
   // auth
   const auth = useAppSelector((state) => state.auth);
   // auth
@@ -65,30 +65,40 @@ const Status = (props: Id) => {
               <Heading fontSize="23px">Status</Heading>
             </Flex>
           </NavLink>
-          <Flex p={4} gap={1} mb={-4}>
+          <Flex p={4} gap={2}>
             <Avatar name="gatot" src={status.author.profile_picture} />
-            <Flex flexDirection="column">
-              <Heading mb={-2} size="m">
-                {status.author.full_name}
-              </Heading>
-              <Text>@{status.author.user_name}</Text>
+            <Flex flexDirection="column" marginTop={-4}>
+              <Flex py={4} gap={1} >
+                <Flex flexDirection="column">
+                  <Heading mb={-2} size="m">
+                    {status.author.full_name}
+                  </Heading>
+                  <Text my={2}>@{status.author.user_name}</Text>
+                </Flex>
+              </Flex>
+              <Text fontSize="" mt={-4}  textAlign={"justify"}>
+                {status.content}
+              </Text>
+              <Image
+                src={status.image}
+                alt="image"
+                borderRadius={"10px"}
+                w={"50%"}
+                my={2}
+              />
+              <Flex mt={-6} mb={-4}>
+                <Text fontSize="14px" p={4}>
+                  {status.createdAt}
+                  <Icon boxSize={1.5} viewBox="0 0 200 200" color="gray.500">
+                    <path
+                      fill="currentColor"
+                      d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                    />
+                  </Icon>
+                  Jul26, 2023
+                </Text>
+              </Flex>
             </Flex>
-          </Flex>
-          <Text fontSize="" mt={-4} p={4} textAlign={"justify"}>
-            {status.content}
-          </Text>
-          <Image src={status.image} alt="image" m={6} borderRadius={"10px"} w={"50%"} my={2} />
-          <Flex mt={-6} mb={-4}>
-            <Text fontSize="14px" p={4}>
-              {status.createdAt}
-              <Icon boxSize={1.5} viewBox="0 0 200 200" color="gray.500">
-                <path
-                  fill="currentColor"
-                  d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-                />
-              </Icon>
-              Jul26, 2023
-            </Text>
           </Flex>
           <Flex gap={5} mx={4}>
             <Button
@@ -103,6 +113,9 @@ const Status = (props: Id) => {
             </Button>
             <Button _hover={{ bg: "#EAECEF" }} bg="transparent">
               <MdOutlineInsertComment size={25} color="gray" />
+              <Text ml={2} color="gray">
+                {status.reply}
+              </Text>
             </Button>
           </Flex>
           <Box>
@@ -148,19 +161,20 @@ const Status = (props: Id) => {
           </Box>
         </Card>
       </form>
-        {status.replies.map((reply) => (
-          <Coment
-            key={reply.id}
-            id={reply.id}
-            name={reply.author.full_name}
-            username={reply.author.user_name}
-            image={reply.author.profile_picture}
-            jam={reply.createdAt}
-            description={reply.content}
-            like={reply.likes}
-            profile={reply.author.user_name}
-          />
-        ))}
+      {status.replies.map((reply) => (
+        <Coment
+          key={reply.id}
+          id={reply.id}
+          name={reply.author.full_name}
+          username={reply.author.user_name}
+          image={reply.image}
+          jam={reply.createdAt}
+          description={reply.content}
+          reply={reply.reply}
+          like={reply.likes}
+          profile={reply.author.profile_picture}
+        />
+      ))}
     </>
   );
 };

@@ -15,7 +15,7 @@ interface threadState {
   data: IThread[];
   isLoading: Boolean;
   isError: Boolean;
-}
+} 
 
 const initialState: threadState = { 
   data: [],
@@ -23,7 +23,7 @@ const initialState: threadState = {
   isError: false,
 };
 
-const threadSlice = createSlice({
+const threadSlice = createSlice({ 
   name: "thread",
   initialState, 
   reducers: {},

@@ -64,13 +64,13 @@ const SideBar: React.FC = () => {
                 ml={4}
                 p={4}
               >
-                Circle
+                Toa
               </Heading>
             </NavLink>
           </Flex>
           <NavLink to={"/"}>
             <Flex pl={4}>
-              <Button _hover={{ bg: "EAECEF", color: "gray" }} bg="#EAECEF">
+              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
                 <BiSolidHomeAlt2 size={25} />
               </Button>
               <Text
@@ -85,7 +85,7 @@ const SideBar: React.FC = () => {
           </NavLink>
           <NavLink to={"/search"}>
             <Flex pl={4}>
-              <Button _hover={{ bg: "EAECEF", color: "gray" }} bg="#EAECEF">
+              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
                 <RiUserSearchLine size={25} />
               </Button>
               <Text
@@ -100,7 +100,7 @@ const SideBar: React.FC = () => {
           </NavLink>
           <NavLink to={"/follows"}>
             <Flex pl={4}>
-              <Button _hover={{ bg: "EAECEF", color: "gray" }} bg="#EAECEF">
+              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
                 <AiOutlineHeart size={25} />
               </Button>
               <Text
@@ -115,7 +115,7 @@ const SideBar: React.FC = () => {
           </NavLink>
           <NavLink to={"/detail-profile"}>
             <Flex pl={4}>
-              <Button _hover={{ bg: "EAECEF", color: "gray" }} bg="#EAECEF">
+              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
                 <CgProfile size={25} />
               </Button>
               <Text
@@ -164,10 +164,10 @@ const SideBar: React.FC = () => {
             onClick={handleLogout}
             bg={"transparent"}
             w={"100px"}
-            _hover={{ bg: "#EAECEF", color: "gray" }}
+            _hover={{ bg: "transparent", color: "gray" }}
           >
             <Flex pl={4}>
-              <Button _hover={{ bg: "#EAECEF", color: "gray" }} bg="#EAECEF">
+              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
                 <TbLogout2 />
               </Button>
               <Text

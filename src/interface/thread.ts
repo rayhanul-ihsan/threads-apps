@@ -11,6 +11,7 @@ export interface IThread {
     id: number,
     likes: number,
     replies: any[] 
+    reply: number
 }
 
 export interface IPostThread {

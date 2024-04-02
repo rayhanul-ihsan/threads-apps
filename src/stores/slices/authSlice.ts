@@ -56,7 +56,7 @@ export const authSlice = createSlice({
         user_name,
         profile_picture,
         image_cover,
-        bio,
+        bio, 
         threads,
       } = action.payload.user;
 

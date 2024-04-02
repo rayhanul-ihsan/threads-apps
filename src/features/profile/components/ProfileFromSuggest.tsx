@@ -144,6 +144,7 @@ const ProfileFromSuggest = (props: Data) => {
         </Card>
         {filterThread?.map((item) => (
           <CardComp
+            reply={item.replies}
             key={item.id}
             id={item.id}
             name={item.author.full_name}

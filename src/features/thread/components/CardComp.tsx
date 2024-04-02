@@ -24,10 +24,16 @@ import {
   Image,
   InputGroup,
   InputLeftElement,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../stores/types/rootState";
-// import { AUTH_CHECK } from "../../../stores/rootReducer";
+import { RootState, useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
+import { API } from "../../../libs/api";
+import { fetchThread } from "../../../stores/slices/threadSlice";
+import { CgMenuRound } from "react-icons/cg";
 
 interface Data {
   id: number;
@@ -38,11 +44,28 @@ interface Data {
   description: string;
   like: number;
   profile: string;
+  reply: number;
 }
 
 const CardComp: React.FC<Data> = (props) => {
-  const { id, jam, name, username, description, like, profile, image } = props;
+  const { id, jam, name, username, description, like, profile, image, reply } = props;
 
+  const dispatch = useAppDispatch()
+
+  const status = useAppSelector((state) => state.reply.threads);
+
+  // const getThread = useAppSelector((state)=> state.thread)
+
+  async function del(id: number) {
+    if (!confirm("Are you sure?")) return false;
+    try {
+      const res = await API.delete(`/thread/${id}`);
+      console.log( res.data);
+      dispatch(fetchThread());
+    } catch (error) {
+      throw error;
+    }
+  }
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // auth
@@ -74,22 +97,42 @@ const CardComp: React.FC<Data> = (props) => {
       >
         <Flex gap={4}>
           <Avatar name="gatot" src={profile} />
-          <Box>
-            <Flex alignItems="center" gap={1}>
-              <Heading
-                _hover={{ fontdirect: "underline", cursor: "pointer" }}
-                size="m"
-              >
-                {name}
-              </Heading>
-              <Text>@{username}</Text>
-              <Icon boxSize={1.5} mt={1} viewBox="0 0 200 200" color="gray.500">
-                <path
-                  fill="currentColor"
-                  d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-                />
-              </Icon>
-              <Text color="gray">12h</Text>
+          <Box w={"100%"}>
+            <Flex justifyContent={"space-between"}>
+              <Flex alignItems="center" gap={1}>
+                <Heading
+                  _hover={{ fontdirect: "underline", cursor: "pointer" }}
+                  size="m"
+                >
+                  {name}
+                </Heading>
+                <Text>@{username}</Text>
+                <Icon
+                  boxSize={1.5}
+                  mt={1}
+                  viewBox="0 0 200 200"
+                  color="gray.500"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
+                  />
+                </Icon>
+                <Text color="gray">12h</Text>
+              </Flex>
+              {props.username === auth.user_name && (
+                <Menu isLazy>
+                  <MenuButton
+                    bg={"transparent"}
+                    _hover={{ bg: "transparent" }}
+                    as={Button}
+                    rightIcon={<CgMenuRound />}
+                  ></MenuButton>
+                  <MenuList  >
+                    <MenuItem onClick={() => del(props.id)} >Delete</MenuItem>
+                  </MenuList>
+                </Menu>
+              )}
             </Flex>
             <NavLink to={`/status/${id}`}>
               <Text textAlign={"justify"}>{description}</Text>
@@ -112,6 +155,9 @@ const CardComp: React.FC<Data> = (props) => {
                 bg="trasnsparent"
               >
                 <MdOutlineInsertComment size={25} color="gray" />
+                <Text ml={2} color="gray">
+                  {status.reply}
+                </Text>
               </Button>
             </Flex>
           </Box>

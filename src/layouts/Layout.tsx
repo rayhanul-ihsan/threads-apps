@@ -14,7 +14,7 @@ interface LayoutProp {
 const Layout = ({children}: LayoutProp) => {
   return (
     <>
-        <Flex w='full' >
+        <Flex w='full' bg='#EAECEF' >
             <Box display={{base:'none', md:'block'}} w={'20%'}> 
                 <SideBar/>
             </Box>

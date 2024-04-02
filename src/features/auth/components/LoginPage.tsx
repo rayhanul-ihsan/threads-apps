@@ -26,8 +26,8 @@ import { AUTH_LOGIN } from "../../../stores/rootReducer";
 import { useDispatch } from "react-redux";
 
 const LoginPage: React.FC = () => {
-  const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+  const [show, setShow] = React.useState(false);
   // const { handleChange, handleLogin } = UseLogin();
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -49,7 +49,7 @@ const LoginPage: React.FC = () => {
   };
   const onError = (errors: any) => {
     console.log(errors);
-  }
+  };
 
   return (
     <>
@@ -98,7 +98,7 @@ const LoginPage: React.FC = () => {
                       </FormErrorMessage>
                     ) : (
                       <FormHelperText>
-                        We'll never share your email.
+                        We'll never share your username.
                       </FormHelperText>
                     )}
                   </FormControl>
