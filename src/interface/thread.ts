@@ -7,9 +7,10 @@ export interface IThread {
     content: string,
     createdAt: string,
     image: string,
-    isLiked: boolean,
+    isLiked?: boolean,
+    updateAt?: Date | null,
     id: number,
-    likes: number,
+    likes: Likes[],
     replies: any[] 
     reply: number
 }
@@ -29,6 +30,7 @@ export interface ReplyThread {
 }
 
 export interface Likes {
+    id: number
     author: {
         id: number
     }

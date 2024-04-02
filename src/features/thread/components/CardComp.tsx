@@ -34,6 +34,7 @@ import { RootState, useAppDispatch, useAppSelector } from "../../../stores/types
 import { API } from "../../../libs/api";
 import { fetchThread } from "../../../stores/slices/threadSlice";
 import { CgMenuRound } from "react-icons/cg";
+import { Likes } from "../../../interface/thread";
 
 interface Data {
   id: number;
@@ -42,9 +43,10 @@ interface Data {
   jam: string;
   image: string;
   description: string;
-  like: number;
   profile: string;
   reply: number;
+  like: Likes[];
+  userLogin?: number
 }
 
 const CardComp: React.FC<Data> = (props) => {
@@ -52,16 +54,21 @@ const CardComp: React.FC<Data> = (props) => {
 
   const dispatch = useAppDispatch()
 
-  const status = useAppSelector((state) => state.reply.threads);
-
-  // const getThread = useAppSelector((state)=> state.thread)
-
   async function del(id: number) {
     if (!confirm("Are you sure?")) return false;
     try {
       const res = await API.delete(`/thread/${id}`);
-      console.log( res.data);
+      // console.log( res.data);
       dispatch(fetchThread());
+    } catch (error) {
+      throw error;
+    }
+  }
+  async function likeThread(id: number) {
+    try {
+      const res = await API.post(`/like/thread`, { thread: id });
+      // console.log( res.data);
+      // dispatch(fetchThread());
     } catch (error) {
       throw error;
     }
@@ -71,16 +78,18 @@ const CardComp: React.FC<Data> = (props) => {
   // auth
   const auth = useSelector((state: RootState) => state.auth);
   // auth
-
-  const [likes, setLikes] = useState<number>(0);
-  const [liked, setLiked] = useState<boolean>(false);
+  const isTrue = props.like.some((item) => item.author.id === props.userLogin);
+  const [likes, setLikes] = useState<number>(props.like.length);
+  const [liked, setLiked] = useState<boolean>(isTrue);
+  console.log(isTrue, liked, props.userLogin)
 
   const handlelike = () => {
     if (!liked) {
-      setLikes(like + 1);
+      setLikes(likes + 1);
     } else {
       setLikes(likes - 1);
     }
+    likeThread(props.id);
     setLiked(!liked);
   };
 
@@ -156,7 +165,7 @@ const CardComp: React.FC<Data> = (props) => {
               >
                 <MdOutlineInsertComment size={25} color="gray" />
                 <Text ml={2} color="gray">
-                  {status.reply}
+                  {props.reply}
                 </Text>
               </Button>
             </Flex>

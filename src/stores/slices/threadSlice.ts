@@ -5,6 +5,7 @@ import { API } from "../../libs/api";
 export const fetchThread = createAsyncThunk("thread/fetchThread", async () => {
   try {
     const response = await API.get("/thread");
+    console.log(response.data)
     return response.data;
   } catch (error) {
     throw error; 

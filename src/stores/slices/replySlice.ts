@@ -24,7 +24,7 @@ const initialThreadsState: { threads: IThread } = {
       image: "",
       isLiked: false,
       id: 0,
-      likes: 0,
+      likes: [],
       replies: [], 
       reply: 0
     },

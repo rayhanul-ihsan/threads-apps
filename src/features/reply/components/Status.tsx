@@ -36,25 +36,21 @@ const Status = (props: Id) => {
   const status = useAppSelector((state) => state.reply.threads);
   console.log("status:", status);
 
-  // auth
   const auth = useAppSelector((state) => state.auth);
-  // auth
 
-  // postreply
   const { handleChange, handleSubmit, handleChangeFile } = PostReply();
-  // postreply
 
   const [likes, setLikes] = useState<number>(0);
   const [liked, setLiked] = useState<boolean>(false);
 
-  const handlelike = () => {
-    if (!liked) {
-      setLikes(likes + 1);
-    } else {
-      setLikes(likes - 1);
-    }
-    setLiked(!liked);
-  };
+  // const handlelike = () => {
+  //   if (!liked) {
+  //     setLikes(likes + 1);
+  //   } else {
+  //     setLikes(likes - 1);
+  //   }
+  //   setLiked(!liked);
+  // };
   return (
     <>
       <form encType="multipart/form-data" onSubmit={handleSubmit}>
