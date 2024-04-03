@@ -5,6 +5,9 @@ import {
   Card,
   Center,
   Flex,
+  FormControl,
+  FormErrorMessage,
+  FormHelperText,
   Heading,
   Icon,
   Input,
@@ -12,23 +15,18 @@ import {
   InputRightElement,
   Text,
   useColorMode,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
 } from "@chakra-ui/react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import UseRegister from "../hooks/UseRegister";
 import { BiMoon, BiSun } from "react-icons/bi";
 
 import { Controller } from "react-hook-form";
+import { API } from "../../../libs/api";
 import { useRegisterValidation } from "../../../validation";
-import { API, setAuthToken } from "../../../libs/api";
 
 const RegisterPage: React.FC = () => {
   const handleClick = () => setShow(!show);
   const [show, setShow] = React.useState(false);
   const { colorMode, toggleColorMode } = useColorMode();
-//   const { handleChange, handleRegister } = UseRegister();
 
   const navigate = useNavigate();
   const { control, handleSubmit } = useRegisterValidation();

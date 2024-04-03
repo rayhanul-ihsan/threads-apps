@@ -1,12 +1,9 @@
-import { Box, Flex, Text, Image} from '@chakra-ui/react'
+import { Box, Flex, Image, Text } from '@chakra-ui/react';
 
-import { FaGithub } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
 
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
 
-import React from 'react'
 
 const Footer = () => {
   return (

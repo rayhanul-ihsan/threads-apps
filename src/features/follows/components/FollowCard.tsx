@@ -1,27 +1,23 @@
 import { Avatar, Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { IFollow } from "../../../interface/user";
+import { useFollow } from "../hooks/useFollow";
+import { useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
+import { fetchFollow } from "../../../stores/slices/followSlice";
 
 export default function FollowCard(props: IFollow) {
-  // console.log("props", props);
-  const [foll, setFoll] = useState<boolean>(false);
-  const [followed, setFollowed] = useState<boolean>(false);
+  const auth = useAppSelector((state) => state.auth.id);
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    
-    if (followed) {
-      setFoll(true);
-    } else {
-      setFoll(false);
-    }
-  })
- 
-  const handleFollowers = () => {
-    if (!foll) {
-      setFoll(true);
-    } else {
-      setFoll(false);
-    }
-  };
+
+    dispatch(fetchFollow());
+  }, [auth]);
+
+  const istrue = props.following!.some((item) => item.id === props.id);
+  const [foll, setFoll] = useState<boolean>(istrue);
+  const { handleFollow, handleUnfollow } = useFollow();
+
+  
   return (
     <>
       <Box
@@ -46,6 +42,7 @@ export default function FollowCard(props: IFollow) {
               </Text>
             </Flex>
           </Flex>
+
           <Button
             boxSize={"fit-content"}
             fontSize={13}
@@ -54,7 +51,9 @@ export default function FollowCard(props: IFollow) {
             borderColor={"black"}
             bg={"transparent"}
             alignItems="center"
-            onClick={handleFollowers}
+            onClick={() => {
+              foll ? (handleUnfollow(props.id!), setFoll((prev) => !prev)) : (handleFollow(props.id!), setFoll((prev) => !prev));
+            }}
           >
             {foll ? "unfollow" : "Follow"}
           </Button>

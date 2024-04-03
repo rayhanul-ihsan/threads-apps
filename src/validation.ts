@@ -4,7 +4,7 @@ import {yupResolver} from '@hookform/resolvers/yup'
 
 export const useLoginValidation = () => {
     const initialValues = {
-        user_name: '', 
+        user_name: '',  
         password: ''
     }
 

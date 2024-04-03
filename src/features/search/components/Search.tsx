@@ -16,12 +16,9 @@ import { useSearch } from "../hooks/useSearch";
 import React, { useEffect, useState } from "react";
 
 const Search = () => {
-  // const {handleChange, data} = useSearch();
-  // console.log(data)
   const { filteredUsers, searchUsers } = useSearch();
   const [searchQuery, setSearchQuery] = useState("");
 
-  // console.log("filteredUsers:", filteredUsers);
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;

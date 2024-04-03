@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit";
 import { IFollow } from "../../interface/user";
 import { API } from "../../libs/api";
 
@@ -24,16 +24,12 @@ interface followState {
   };
   isLoading: Boolean;
   isError: Boolean;
-  follower: IFollow[];
-  following: IFollow[];
 }
 const initialState: followState = {
   data: {
     followers: [],
     followings: [],
-  },
-  follower: [],
-  following: [],
+  }, 
   isLoading: false,
   isError: false,
 };
@@ -57,23 +53,16 @@ const followSlice = createSlice({
   },
 });
 
+// Selector untuk menghitung jumlah pengikut
+export const selectFollowersCount = createSelector(
+  (state: { follow: followState }) => state.follow.data.followers,
+  (followers) => followers.length
+);
+
+// Selector untuk menghitung jumlah yang diikuti
+export const selectFollowingsCount = createSelector(
+  (state: { follow: followState }) => state.follow.data.followings,
+  (followings) => followings.length
+);
+
 export default followSlice.reducer;
-
-// const initialState :{ follower: IFollow[]; following: IFollow[] } = {
-//     follower: [],
-//     following: []
-// }
-// console.log("follower",initialState.follower)
-// console.log("following",initialState.following)
-// export const followSlice = createSlice({
-//     name: "follow",
-//     initialState,
-//     reducers: {
-//      GET_FOLLOW: (state, action) => {
-//         state.follower = action.payload.follower
-//         state.following = action.payload.following
-//      }
-//     }
-// })
-
-// export const {GET_FOLLOW} = followSlice.actions

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Avatar,
   Box,
@@ -9,17 +9,20 @@ import {
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { IFollow } from "../../../interface/user";
+import { useFollow } from "../../follows/hooks/useFollow";
+import { useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
+import { fetchFollow } from "../../../stores/slices/followSlice";
 
 export default function SuggestComp(props: IFollow){
-  const [foll, setFoll] = React.useState<boolean>(false);
   
-  const handleFollow = () => {
-    if (!foll) {
-      setFoll(true);
-    } else {
-      setFoll(false);
-    }
-  };
+  const istrue = props.following!.some((item) => item.id === props.id);
+  const [foll, setFoll] = React.useState<boolean>(istrue);  
+  const { handleFollow, handleUnfollow } = useFollow();
+  const dispatch = useAppDispatch();
+  const auth = useAppSelector((state) => state.auth.id);
+  useEffect(() => {
+    dispatch(fetchFollow());
+  }, [auth]);
 
   return ( 
     <>
@@ -55,9 +58,11 @@ export default function SuggestComp(props: IFollow){
             bg={"transparent"}
             alignItems="center"
             textColor={"black"}
-            onClick={handleFollow}
+            onClick={() => {
+              foll ? (handleUnfollow(props.id!), setFoll((prev) => !prev)) : (handleFollow(props.id!), setFoll((prev) => !prev));
+            }}
           >
-            {foll ? "Following" : "Follow"}
+            {foll ? "unfollow" : "Follow"}
           </Button>
         </Flex>
       </Box>

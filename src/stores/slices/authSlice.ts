@@ -25,7 +25,7 @@ export const authSlice = createSlice({
       setAuthToken(token);
 
 
-      const {
+      const { 
         id,
         email,
         full_name,

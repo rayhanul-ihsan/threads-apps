@@ -8,23 +8,22 @@ import {
   Heading,
   Icon,
   Image,
-  Text,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
+  MenuList,
+  Text,
 } from "@chakra-ui/react";
 
 import { AiOutlineHeart } from "react-icons/ai";
-import { TbArtboardFilled } from "react-icons/tb";
-import { MdOutlineInsertComment } from "react-icons/md";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../../stores/types/rootState";
-import { fetchReplyThread } from "../../../stores/slices/replySlice";
-import { API } from "../../../libs/api";
 import { CgMenuRound } from "react-icons/cg";
+import { MdOutlineInsertComment } from "react-icons/md";
+import { API } from "../../../libs/api";
+import { timeAgo } from "../../../mocks/ConvertDate";
+import { fetchReplyThread } from "../../../stores/slices/replySlice";
+import {
+  useAppDispatch
+} from "../../../stores/types/rootState";
 
 
 interface Data {
@@ -40,10 +39,8 @@ interface Data {
 }
 
 const Coment: React.FC<Data> = (props) => {
-  const { id, jam, name, username, description, like, profile, reply, image } =
-    props;
+  const { jam, name, username, description, profile, image } = props;
 
-  const auth = useAppSelector((state) => state.auth);
 
   const [likes, setLikes] = useState<number>(0);
   const [liked, setLiked] = useState<boolean>(false);
@@ -90,7 +87,7 @@ const Coment: React.FC<Data> = (props) => {
                     d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
                   />
                 </Icon>
-                <Text color="gray">12h</Text>
+                <Text color="gray">{timeAgo(jam)}</Text>
               </Flex>
               <Menu isLazy>
                 <MenuButton

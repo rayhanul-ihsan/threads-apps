@@ -9,15 +9,14 @@ import {
   Tabs,
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
-import FollowCard from "../hooks/FollowCard";
 import { fetchFollow } from "../../../stores/slices/followSlice";
-import {  useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
+import { useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
+import FollowCard from "./FollowCard";
 
 const FollowsComp: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const getFollow = useAppSelector((state) => state.follow);
-  console.log("getFollow", getFollow)
 
   useEffect(() => {
     dispatch(fetchFollow());
@@ -46,6 +45,8 @@ const FollowsComp: React.FC = () => {
                     user_name={item.user_name}
                     profile_picture={item.profile_picture}
                     bio={item.bio}
+                    following={getFollow.data.followings}                  
+                    
                   />
                 ))}
               </TabPanel>
@@ -59,6 +60,8 @@ const FollowsComp: React.FC = () => {
                     user_name={item.user_name}
                     profile_picture={item.profile_picture}
                     bio={item.bio}
+                    following={getFollow.data.followings}
+
                   />
                 ))}
               </TabPanel>

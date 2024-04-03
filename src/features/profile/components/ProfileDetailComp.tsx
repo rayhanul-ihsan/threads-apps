@@ -151,12 +151,12 @@ const ProfileDetailComp: React.FC = () => {
 
         {filterThread.map((item) => (
           <CardComp
-            reply={item.replies}
             key={item.id}
             id={item.id}
             name={item.author.full_name}
             username={item.author.user_name}
             profile={item.author.profile_picture}
+            reply={item.reply}
             image={item.image}
             jam={item.createdAt}
             description={item.content}

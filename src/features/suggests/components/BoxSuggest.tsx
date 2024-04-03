@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
 import { Card, Heading } from "@chakra-ui/react";
+import React, { useEffect } from "react";
 import { fetchFollow } from "../../../stores/slices/followSlice";
 import { useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
 import SuggestComp from "./SuggestComp";
 
 const BoxSuggest: React.FC = () => {
-  const dispatch = useAppDispatch();
-
   const getSuggest = useAppSelector((state) => state.follow);
+  const dispatch = useAppDispatch();
+  const auth = useAppSelector((state) => state.auth.id);
+
+
 
   useEffect(() => {
     dispatch(fetchFollow());
-  }, []);
+  }, [auth]);
 
   return (
     <>
@@ -27,6 +29,7 @@ const BoxSuggest: React.FC = () => {
             full_name={item.full_name}
             user_name={item.user_name}
             profile_picture={item.profile_picture}
+            following={getSuggest.data.followings}
           />
         ))}
       </Card>

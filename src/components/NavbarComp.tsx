@@ -1,14 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import { CgProfile } from "react-icons/cg";
-import { TbLogout2 } from "react-icons/tb";
-import { NavLink } from 'react-router-dom';
-import { LuImagePlus } from 'react-icons/lu';
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiSolidHomeAlt2 } from "react-icons/bi";
+import { CgProfile } from "react-icons/cg";
 import { RiUserSearchLine } from "react-icons/ri";
+import { NavLink } from 'react-router-dom';
 
-import {  Avatar, Box, Button, Card, Flex, Heading, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Text, useDisclosure } from '@chakra-ui/react'
+import { Button, Card, Flex, Spacer } from '@chakra-ui/react';
 
 const NavbarComp :React.FC = () => {
 

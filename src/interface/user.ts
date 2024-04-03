@@ -32,5 +32,19 @@ export interface IFollow{
     profile_picture?: string
     image_cover?: string
     bio?: string
+    following?: IFollow[]
+    followers?: IFollow[]
     
+}
+export interface Followings{
+    id: number
+    followers: {
+        id: number
+    }
+}
+export interface Followers{
+    id: number
+    followings: {
+        id: number
+    }
 }

@@ -1,8 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { LuImagePlus } from "react-icons/lu";
-import { AiOutlineHeart } from "react-icons/ai";
-import { MdOutlineInsertComment } from "react-icons/md";
 import {
   Avatar,
   Box,
@@ -10,31 +5,37 @@ import {
   Card,
   Flex,
   Heading,
-  Text,
   Icon,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  Input,
-  ModalFooter,
   Image,
+  Input,
   InputGroup,
   InputLeftElement,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
+  MenuList,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { RootState, useAppDispatch, useAppSelector } from "../../../stores/types/rootState";
-import { API } from "../../../libs/api";
-import { fetchThread } from "../../../stores/slices/threadSlice";
+import React, { useState } from "react";
+import { AiOutlineHeart } from "react-icons/ai";
 import { CgMenuRound } from "react-icons/cg";
+import { LuImagePlus } from "react-icons/lu";
+import { MdOutlineInsertComment } from "react-icons/md";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { Likes } from "../../../interface/thread";
+import { API } from "../../../libs/api";
+import { timeAgo } from "../../../mocks/ConvertDate";
+import { fetchThread } from "../../../stores/slices/threadSlice";
+import { RootState, useAppDispatch } from "../../../stores/types/rootState";
 
 interface Data {
   id: number;
@@ -46,19 +47,18 @@ interface Data {
   profile: string;
   reply: number;
   like: Likes[];
-  userLogin?: number
+  userLogin?: number;
 }
 
 const CardComp: React.FC<Data> = (props) => {
-  const { id, jam, name, username, description, like, profile, image, reply } = props;
+  const { id, jam, name, username, description, profile, image } = props;
 
   const dispatch = useAppDispatch()
 
   async function del(id: number) {
     if (!confirm("Are you sure?")) return false;
     try {
-      const res = await API.delete(`/thread/${id}`);
-      // console.log( res.data);
+      await API.delete(`/thread/${id}`);
       dispatch(fetchThread());
     } catch (error) {
       throw error;
@@ -66,9 +66,7 @@ const CardComp: React.FC<Data> = (props) => {
   }
   async function likeThread(id: number) {
     try {
-      const res = await API.post(`/like/thread`, { thread: id });
-      // console.log( res.data);
-      // dispatch(fetchThread());
+      await API.post(`/like/thread`, { thread: id });
     } catch (error) {
       throw error;
     }
@@ -81,7 +79,6 @@ const CardComp: React.FC<Data> = (props) => {
   const isTrue = props.like.some((item) => item.author.id === props.userLogin);
   const [likes, setLikes] = useState<number>(props.like.length);
   const [liked, setLiked] = useState<boolean>(isTrue);
-  console.log(isTrue, liked, props.userLogin)
 
   const handlelike = () => {
     if (!liked) {
@@ -127,7 +124,7 @@ const CardComp: React.FC<Data> = (props) => {
                     d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
                   />
                 </Icon>
-                <Text color="gray">12h</Text>
+                <Text color="gray">{timeAgo(jam)}</Text>
               </Flex>
               {props.username === auth.user_name && (
                 <Menu isLazy>

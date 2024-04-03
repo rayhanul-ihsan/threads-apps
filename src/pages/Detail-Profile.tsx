@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from "react";
 import LayoutProfile from "../layouts/LayoutProfile";
-import ProfileDetailComp from "../features/profile/components/ProfileDetailComp";
 import ProfileFromSuggest from "../features/profile/components/ProfileFromSuggest";
 import { useParams } from "react-router-dom";
 import { API } from "../libs/api";
 import { IUser } from "../interface/user";
-import { useSelector } from "react-redux";
-import { RootState } from "../stores/types/rootState";
-import { Text } from "@chakra-ui/react";
+import { useAppSelector } from "../stores/types/rootState";
 
 const DetailProfile: React.FC = () => {
   let { id } = useParams();
   const [getUser, setGetUser] = useState<IUser>();
-  const auth = useSelector((state: RootState) => state.auth);
-  console.log(!!id)
+  const auth = useAppSelector((state) => state.auth); 
 
   const getUserSuggest = async () => {
     if(!!id) {
       const response = await API.get(`/user/${id}`);
+      console.log("data",response.data.data)
       setGetUser(response.data.data);
     } else {
       setGetUser(auth);
@@ -37,6 +34,7 @@ const DetailProfile: React.FC = () => {
     <>
       <LayoutProfile>
         <ProfileFromSuggest 
+          id={getUser?.id}
           bio={getUser?.bio}
           full_name={getUser?.full_name}
           image_cover={getUser?.image_cover}

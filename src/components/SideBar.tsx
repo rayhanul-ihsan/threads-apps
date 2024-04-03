@@ -1,21 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 
+import { AiOutlineHeart } from "react-icons/ai";
+import { BiSolidHomeAlt2 } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
+import { LuImagePlus } from "react-icons/lu";
+import { RiUserSearchLine } from "react-icons/ri";
 import { TbLogout2 } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
-import { LuImagePlus } from "react-icons/lu";
-import { AiOutlineHeart } from "react-icons/ai";
-import { BiMoon, BiSolidHomeAlt2, BiSun } from "react-icons/bi";
-import { RiUserSearchLine } from "react-icons/ri";
 
 import {
   Avatar,
   Box,
   Button,
-  Icon,
   Flex,
   Heading,
   Input,
+  InputGroup,
+  InputLeftElement,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -25,16 +26,12 @@ import {
   ModalOverlay,
   Spacer,
   Text,
-  useDisclosure,
-  useColorMode,
-  InputGroup,
-  InputLeftElement,
+  useDisclosure
 } from "@chakra-ui/react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import PostThread from "../features/thread/hooks/PostThread";
-import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../stores/types/rootState";
-import { AUTH_CHECK } from "../stores/rootReducer";
 
 const SideBar: React.FC = () => {
   const token = localStorage.getItem("token");
@@ -70,7 +67,10 @@ const SideBar: React.FC = () => {
           </Flex>
           <NavLink to={"/"}>
             <Flex pl={4}>
-              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
+              <Button
+                _hover={{ bg: "transparent", color: "gray" }}
+                bg={"transparent"}
+              >
                 <BiSolidHomeAlt2 size={25} />
               </Button>
               <Text
@@ -85,7 +85,10 @@ const SideBar: React.FC = () => {
           </NavLink>
           <NavLink to={"/search"}>
             <Flex pl={4}>
-              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
+              <Button
+                _hover={{ bg: "transparent", color: "gray" }}
+                bg={"transparent"}
+              >
                 <RiUserSearchLine size={25} />
               </Button>
               <Text
@@ -100,7 +103,10 @@ const SideBar: React.FC = () => {
           </NavLink>
           <NavLink to={"/follows"}>
             <Flex pl={4}>
-              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
+              <Button
+                _hover={{ bg: "transparent", color: "gray" }}
+                bg={"transparent"}
+              >
                 <AiOutlineHeart size={25} />
               </Button>
               <Text
@@ -115,7 +121,10 @@ const SideBar: React.FC = () => {
           </NavLink>
           <NavLink to={"/detail-profile"}>
             <Flex pl={4}>
-              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
+              <Button
+                _hover={{ bg: "transparent", color: "gray" }}
+                bg={"transparent"}
+              >
                 <CgProfile size={25} />
               </Button>
               <Text
@@ -133,10 +142,14 @@ const SideBar: React.FC = () => {
             _hover={{ bg: "#6178D6", color: "black" }}
             mt={2}
             ml={2}
+            px={14}
+            py={2}
             w={"200px"}
-            rounded={15}
+            rounded={20}
             color={"white"}
             bg="#482AE3"
+            boxSize={"fit-content"}
+            border="2px"
           >
             Creat Post
           </Button>
@@ -167,7 +180,10 @@ const SideBar: React.FC = () => {
             _hover={{ bg: "transparent", color: "gray" }}
           >
             <Flex pl={4}>
-              <Button _hover={{ bg: "transparent", color: "gray" }} bg={"transparent"} >
+              <Button
+                _hover={{ bg: "transparent", color: "gray" }}
+                bg={"transparent"}
+              >
                 <TbLogout2 />
               </Button>
               <Text
