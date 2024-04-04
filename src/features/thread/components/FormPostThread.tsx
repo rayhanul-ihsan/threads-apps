@@ -5,7 +5,7 @@ import {
   Button,
   Flex,
   Heading,
-  Input,
+  Input, 
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";

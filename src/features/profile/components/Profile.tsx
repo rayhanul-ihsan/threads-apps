@@ -62,8 +62,8 @@ const Profile: React.FC = () => {
         borderRadius="15px"
         bg={"#E5E5E5"}
         // p='5px'
-        h="300px"
-        w="100%"
+        h="320px"
+        w="400px"
       >
         <Text fontWeight="500" my={2} mx={4}>
         Profile
@@ -73,11 +73,11 @@ const Profile: React.FC = () => {
             src={
               auth.image_cover
                 ? auth.image_cover
-                : "https://i.ibb.co/xmP2pS6/Profile.png"
+                : "https://i.ibb.co/5GT7KzT/hamza-erbay-9-UK-GTHw-Vx4-unsplash.jpg"
             }
             // maxW='100%'
             w={"100%"}
-            h={"30%"}
+            h={"20%"}
             borderRadius="20px"
           />
           <Flex justify="space-between" w="full" p={3}>
@@ -117,7 +117,7 @@ const Profile: React.FC = () => {
             </Text>
             <Text
               textAlign={"left"}
-              fontSize="10px"
+              fontSize="13px"
               fontWeight={"500"}
               textColor="GrayText"
             >

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import CardComp from '../components/CardComp'
+import CardComp from './CardComp'
 import { fetchThread}  from '../../../stores/slices/threadSlice'
 import { useAppDispatch, useAppSelector } from '../../../stores/types/rootState'
 

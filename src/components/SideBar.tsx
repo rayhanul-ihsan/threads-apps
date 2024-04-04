@@ -1,13 +1,3 @@
-import React from "react";
-
-import { AiOutlineHeart } from "react-icons/ai";
-import { BiSolidHomeAlt2 } from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
-import { LuImagePlus } from "react-icons/lu";
-import { RiUserSearchLine } from "react-icons/ri";
-import { TbLogout2 } from "react-icons/tb";
-import { NavLink } from "react-router-dom";
-
 import {
   Avatar,
   Box,
@@ -26,12 +16,21 @@ import {
   ModalOverlay,
   Spacer,
   Text,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
+import React from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import PostThread from "../features/thread/hooks/PostThread";
+import { CgProfile } from "react-icons/cg";
+import { TbLogout2 } from "react-icons/tb";
+import { NavLink } from "react-router-dom";
+import { LuImagePlus } from "react-icons/lu";
+import { HiSpeakerphone } from "react-icons/hi";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BiSolidHomeAlt2 } from "react-icons/bi";
+import { RiUserSearchLine } from "react-icons/ri";
 import { RootState } from "../stores/types/rootState";
+import PostThread from "../features/thread/hooks/PostThread";
 
 const SideBar: React.FC = () => {
   const token = localStorage.getItem("token");
@@ -55,14 +54,24 @@ const SideBar: React.FC = () => {
         <Box>
           <Flex justifyContent="space-between" alignItems="center">
             <NavLink to={"/"}>
-              <Heading
-                _hover={{ color: "#6178D6" }}
-                color="#482AE3"
-                ml={4}
-                p={4}
-              >
-                Toa
-              </Heading>
+              <Flex flexDirection={"row"} alignContent={"center"}>
+                <Heading
+                  _hover={{ color: "#6178D6" }}
+                  color="#482AE3"
+                  ml={4}
+                  p={4}
+                >
+                  ToaTalk
+                </Heading>
+                <Heading
+                  _hover={{ color: "black", cursor: "pointer" }}
+                  fontSize="30px"
+                  color={"#482AE3"}
+                  mt={4}
+                >
+                  <HiSpeakerphone size={40} />
+                </Heading>
+              </Flex>
             </NavLink>
           </Flex>
           <NavLink to={"/"}>

@@ -60,8 +60,8 @@ const RegisterPage: React.FC = () => {
             p={4}
             alignItems={"center"}
           >
-            <Heading>Toa</Heading>
-            <Text>Create account Toa</Text>
+            <Heading>ToaTalk</Heading>
+            <Text>Create account ToaTalk</Text>
             <Button
               onClick={toggleColorMode}
               bg={"transparent"}

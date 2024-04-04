@@ -31,12 +31,12 @@ const FollowsComp: React.FC = () => {
           </Heading>
           <Tabs isFitted>
             <TabList>
-              <Tab>Followers</Tab>
-              <Tab>Following</Tab>
+              <Tab fontWeight={"bold"}>Followers</Tab>
+              <Tab fontWeight={"bold"}>Following</Tab>
             </TabList>
             <TabPanels>
               <TabPanel>
-                {getFollow.isLoading && <h1>Loading...</h1>}
+                {/* {getFollow.isLoading && <h1>Loading...</h1>} */}
                 {getFollow.data?.followers.map((item, index) => (
                   <FollowCard
                     key={index}
@@ -51,7 +51,7 @@ const FollowsComp: React.FC = () => {
                 ))}
               </TabPanel>
               <TabPanel>
-                {getFollow.isLoading && <h1>Loading...</h1>}
+                {/* {getFollow.isLoading && <h1>Loading...</h1>} */}
                 {getFollow.data?.followings.map((item, index) => (
                   <FollowCard
                     key={index}

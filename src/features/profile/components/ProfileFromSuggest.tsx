@@ -18,7 +18,7 @@ import {
   ModalOverlay,
   Text,
   useColorModeValue,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { FaEdit } from "react-icons/fa";
@@ -52,7 +52,6 @@ const ProfileFromSuggest = (props: Data) => {
   let boxBg = useColorModeValue("white !important", "#111c44 !important");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-
   const followersCount = useAppSelector(selectFollowersCount);
   const followingsCount = useAppSelector(selectFollowingsCount);
 
@@ -74,8 +73,6 @@ const ProfileFromSuggest = (props: Data) => {
     handleGetThread();
     dispatch(fetchThread());
   }, []);
-
-  
 
   if (auth === 0) return null;
 
@@ -101,11 +98,12 @@ const ProfileFromSuggest = (props: Data) => {
               src={
                 image_cover
                   ? image_cover
-                  : "https://i.ibb.co/xmP2pS6/Profile.png"
+                  : "https://i.ibb.co/5GT7KzT/hamza-erbay-9-UK-GTHw-Vx4-unsplash.jpg"
               }
               // maxW='100%'
               w={"100%"}
-              h={"30%"}
+              h={"13%"}
+              objectFit="cover"
               borderRadius="20px"
             />
             <Flex justify="space-between" w="full" p={3} mb={-2}>
@@ -124,13 +122,15 @@ const ProfileFromSuggest = (props: Data) => {
               />
               {props.user_name === auth2.user_name && (
                 <Button
+                  _hover={{ bg: "#6178D6", color: "black" }}
+                  rounded={20}
+                  color="white"
+                  bg="#482AE3"
                   boxSize={"fit-content"}
-                  fontSize={13}
-                  rounded={15}
                   border="2px"
-                  borderColor={"black"}
-                  bg={"transparent"}
-                  mt={1}
+                  fontSize={13}
+                  py={2}
+                  mt={-1}
                   alignItems={"end"}
                   onClick={onOpen}
                 >
@@ -197,8 +197,13 @@ const ProfileFromSuggest = (props: Data) => {
         motionPreset="slideInBottom"
       >
         <ModalOverlay />
-        <ModalContent bg="#1D1D1D" color="white">
-          <ModalHeader>Edit Profile</ModalHeader>
+        <ModalContent bg={"gray"} _hover={{ bg: "#E5E5E5" }}>
+          <ModalHeader
+            color={"black"}
+            _hover={{ color: "gray", cursor: "pointer" }}
+          >
+            Edit Profile
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody w="100%" margin="auto">
             <form>

@@ -66,8 +66,8 @@ const LoginPage: React.FC = () => {
             p={4}
             alignItems={"center"}
           >
-            <Heading>Toa</Heading>
-            <Text fontWeight={"700"}>Login to Toa</Text>
+            <Heading>ToaTalk</Heading>
+            <Text fontWeight={"700"}>Login to ToaTalk</Text>
             <Button
               onClick={toggleColorMode}
               bg={"transparent"}

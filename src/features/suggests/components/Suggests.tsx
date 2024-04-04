@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import  SuggestComp  from '../components/SuggestComp'
+import  SuggestComp  from './SuggestComp'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../../stores/types/rootState'
 import { fetchFollow } from '../../../stores/slices/followSlice'
