@@ -1,4 +1,4 @@
-import { Card, Heading } from "@chakra-ui/react";
+import { Box, Card, Heading } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { fetchFollow } from "../../../stores/slices/followSlice";
 import {
@@ -34,22 +34,36 @@ const BoxSuggest: React.FC = () => {
 
   return (
     <>
-      <Card mx={"2"} borderRadius="20px" w="400px" bg={"#E5E5E5"} overflowY="scroll" maxHeight="400px" onScroll={handleScroll}>
-        <Heading fontSize="15px" m={2}>
+      <Card
+        mx={"2"}
+        borderRadius="20px"
+        w="400px"
+        bg={"#E5E5E5"}
+      >
+        <Heading fontSize="15px" position={"sticky"} m={2}>
           Suggested for you
         </Heading>
         {/* {getSuggest?.isLoading && <div>Loading...</div>} */}
-        {getSuggest.data.followers.slice(0, visibleFollowers).map((item, index) => (
-          <FollowCard
-            key={index}
-            id={item.id}
-            full_name={item.full_name}
-            user_name={item.user_name}
-            profile_picture={item.profile_picture}
-            following={getSuggest.data.followings}
-          />
-        ))}
-        {isLoading && <div>Loading...</div>}
+        <Box
+          maxHeight="200px"
+          mx={"2"}
+          borderRadius="20px"
+          w="380px"
+          bg={"#E5E5E5"}
+          overflowY="scroll"
+          h={250}
+        >
+          {getSuggest.data.followers.map((follower, index) => (
+            <FollowCard
+              key={index}
+              id={follower.id}
+              full_name={follower.full_name}
+              user_name={follower.user_name}
+              profile_picture={follower.profile_picture}
+              following={getSuggest.data.followings}
+            />
+          ))}
+        </Box>
       </Card>
     </>
   );
