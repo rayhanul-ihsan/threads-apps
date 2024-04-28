@@ -24,9 +24,14 @@ import { useAppSelector } from "../../../stores/types/rootState";
 import PostReply from "../hooks/PostReply";
 import Coment from "./Coment";
 import { timeAgo } from "../../../mocks/ConvertDate";
+import { Likes } from "../../../interface/thread";
+import { API } from "../../../libs/api";
 
 interface Id {
   id: number;
+  like: Likes[];
+  userLogin?: number;
+
 }
 const Status = (props: Id) => {
   const { id } = props;
@@ -41,8 +46,16 @@ const Status = (props: Id) => {
 
   const { handleChange, handleSubmit, handleChangeFile } = PostReply();
 
+  async function likeThread(id: number) {
+    try {
+      await API.post(`/like/thread`, { thread: id });
+    } catch (error) {
+      throw error;
+    }
+  }
+
   const [likes, setLikes] = useState<number>(0);
-  const [liked, setLiked] = useState<boolean>(false);
+  const [liked, setLiked] = useState<boolean>();
 
   const handlelike = () => {
     if (!liked) {
@@ -50,6 +63,7 @@ const Status = (props: Id) => {
     } else {
       setLikes(likes - 1);
     }
+    likeThread(props.id);
     setLiked(!liked);
   };
   return (

@@ -29,7 +29,7 @@ export default function SuggestComp(props: IFollow){
       <Box
         borderRadius="20px"
         _hover={{ bg: "#EAECEF" }}
-        w="100%"
+        w="100%" 
         bg={"transparent"}
       >
         <Flex

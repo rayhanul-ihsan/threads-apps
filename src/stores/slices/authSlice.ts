@@ -1,7 +1,6 @@
+import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from "../../interface/user";
 import { setAuthToken } from "../../libs/api";
-import { createSlice } from "@reduxjs/toolkit";
-import { jwtDecode } from "jwt-decode";
 
 const initialAuthState: IUser = {
   id: 0,
@@ -15,7 +14,7 @@ const initialAuthState: IUser = {
   threads: [],
 };
 
-export const authSlice = createSlice({
+export const authSlice = createSlice({ 
   name: "auth",
   initialState: initialAuthState,
   reducers: {
@@ -47,7 +46,6 @@ export const authSlice = createSlice({
       state.threads = threads;
     },
     AUTH_CHECK: (state, action) => {
-      // console.log(action);
       
       const {
         id,
@@ -69,11 +67,5 @@ export const authSlice = createSlice({
       state.bio = bio;
       state.threads = threads;
     },
-    // AUTH_ERROR: () => {
-    //   localStorage.removeItem("token");
-    // },
-    // AUTH_LOGOUT: () => {
-    //   localStorage.removeItem("token");
-    // },
   },
 });

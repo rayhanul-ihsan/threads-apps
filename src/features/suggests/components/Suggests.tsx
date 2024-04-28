@@ -3,6 +3,7 @@ import  SuggestComp  from './SuggestComp'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../../stores/types/rootState'
 import { fetchFollow } from '../../../stores/slices/followSlice'
+import FollowCard from '../../follows/components/FollowCard'
 
 
 
@@ -19,7 +20,7 @@ export default function Suggests() {
     <div>
         {getSuggest?.isLoading && <div>Loading...</div>}
         {getSuggest?.data.data.map((item) => (
-                <SuggestComp
+                <FollowCard
                 key={item.id}
                 id={item.id}
                 full_name={item.full_name}

@@ -16,7 +16,7 @@ import FollowCard from "./FollowCard";
 const FollowsComp: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  const getFollow = useAppSelector((state) => state.follow);
+  const getFollow = useAppSelector((state) => state.follow); 
 
   useEffect(() => {
     dispatch(fetchFollow());

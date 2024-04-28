@@ -67,9 +67,9 @@ const SideBar: React.FC = () => {
                   _hover={{ color: "black", cursor: "pointer" }}
                   fontSize="30px"
                   color={"#482AE3"}
-                  mt={4}
+                  mt={5}
                 >
-                  <HiSpeakerphone size={40} />
+                  <HiSpeakerphone size={35} />
                 </Heading>
               </Flex>
             </NavLink>

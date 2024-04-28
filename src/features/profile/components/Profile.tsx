@@ -6,22 +6,6 @@ import {
   Flex,
   Image,
   Text,
-  // Avatar,
-  // Circle,
-  // Heading,
-  // Icon,
-  // Input,
-  // InputGroup,
-  // InputLeftElement,
-  // InputRightElement,
-  // Modal,
-  // ModalBody,
-  // ModalCloseButton,
-  // ModalContent,
-  // ModalFooter,
-  // ModalHeader,
-  // ModalOverlay,
-  // useDisclosure,
   useColorModeValue,
 } from "@chakra-ui/react";
 import {
@@ -70,14 +54,15 @@ const Profile: React.FC = () => {
         </Text>
         <Flex direction="column" alignItems="center" mx={2}>
           <Image
-            src={
+            src={ 
               auth.image_cover
                 ? auth.image_cover
                 : "https://i.ibb.co/5GT7KzT/hamza-erbay-9-UK-GTHw-Vx4-unsplash.jpg"
             }
             // maxW='100%'
             w={"100%"}
-            h={"20%"}
+            h={"23%"}
+            objectFit="cover"
             borderRadius="20px"
           />
           <Flex justify="space-between" w="full" p={3}>

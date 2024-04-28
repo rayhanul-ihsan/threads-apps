@@ -7,7 +7,7 @@ import {
   useAppSelector,
 } from "../../../stores/types/rootState";
 import { fetchFollow } from "../../../stores/slices/followSlice";
-
+  
 export default function FollowCard(props: IFollow) {
   const auth = useAppSelector((state) => state.auth.id);
   const dispatch = useAppDispatch();

@@ -62,7 +62,7 @@ const CardComp: React.FC<Data> = (props) => {
       dispatch(fetchThread());
     } catch (error) {
       throw error;
-    }
+    } 
   }
   async function likeThread(id: number) {
     try {

@@ -14,11 +14,18 @@ import { FaUser } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import { useSearch } from "../hooks/useSearch";
 import React, { useEffect, useState } from "react";
+import { IFollow } from "../../../interface/user";
+import { useFollow } from "../../follows/hooks/useFollow";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../stores/types/rootState";
+import { fetchFollow } from "../../../stores/slices/followSlice";
+import FollowCard from "../../follows/components/FollowCard";
 
-const Search = () => {
+export default function Search() {
   const { filteredUsers, searchUsers } = useSearch();
   const [searchQuery, setSearchQuery] = useState("");
-
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -31,15 +38,17 @@ const Search = () => {
     setSearchQuery("");
   }, [searchQuery]);
 
-  const [foll, setFoll] = useState<boolean>(false);
+  const getFollow = useAppSelector((state) => state.follow);
 
-  const handleFollowers = () => {
-    if (!foll) {
-      setFoll(true);
-    } else {
-      setFoll(false);
-    }
-  };
+  // const istrue =
+  //   props.following && props.following.some((i) => i.id === props.id);
+  // const [foll, setFoll] = React.useState<boolean>(istrue || false);
+  // const { handleFollow, handleUnfollow } = useFollow();
+  const dispatch = useAppDispatch();
+  const auth = useAppSelector((state) => state.auth.id);
+  useEffect(() => {
+    dispatch(fetchFollow());
+  }, [auth]);
   return (
     <>
       <Card
@@ -69,51 +78,38 @@ const Search = () => {
             onChange={handleSearchInputChange}
           />
         </InputGroup>
-
-        <Box
-          my={2}
-          _hover={{ bg: "gray.200" }}
-          w={"100%"}
-          borderBlock={2}
-          borderColor={"black"}
-        >
-          {filteredUsers?.map((item) => (
-            <Flex
-              gap={1}
-              p={2}
-              justifyContent="space-between"
-              alignItems={"center"}
-              key={item.id}
-            >
-              <NavLink to={`/detail-profile/${item.id}`}>
-                <Flex alignItems={"center"} gap={1}>
-                  <Avatar name="gatot" src={item.profile_picture} />
-                  <Flex flexDirection="column">
-                    <Heading size="m">{item.full_name}</Heading>
-                    <Text mt={-2} fontSize="12px" textColor="GrayText">
-                      @{item.user_name}
-                    </Text>
-                  </Flex>
-                </Flex>
-              </NavLink>
-              <Button
-                boxSize={"fit-content"}
-                fontSize={13}
-                rounded={15}
-                border="2px"
-                borderColor={"black"}
-                bg={"transparent"}
-                alignItems="center"
-                onClick={handleFollowers}
-              >
-                {foll ? "Following" : "Follow"}
-              </Button>
-            </Flex>
-          ))}
-        </Box>
+        {/* {[...getFollow.data.followers, ...getFollow.data.followings]
+          .filter(
+            (value, index, self) =>
+              index ===
+              self.findIndex(
+                (t) =>
+                  t.email === value.email && t.user_name === value.user_name
+              )
+          )
+          .map((item, index) => (
+            <FollowCard
+              key={index}
+              id={item.id}
+              full_name={item.full_name}
+              user_name={item.user_name}
+              profile_picture={item.profile_picture}
+              bio={item.bio}
+              following={getFollow.data.followings}
+            />
+          ))} */}
+        {filteredUsers.map((item, index) => (
+          <FollowCard
+            key={index}
+            id={item.id}
+            full_name={item.full_name}
+            user_name={item.user_name}
+            profile_picture={item.profile_picture}
+            bio={item.bio}
+            following={getFollow.data.followings}
+          />
+        ))}
       </Card>
     </>
   );
-};
-
-export default Search;
+}

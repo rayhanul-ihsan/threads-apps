@@ -15,13 +15,13 @@ const Layout = ({children}: LayoutProp) => {
     <>
         <Flex w='full' bg='#EAECEF' >
             <Box display={{base:'none', md:'block'}} w={'20%'}> 
-                <SideBar/>
+                <SideBar/> 
             </Box>
            <Flex flexWrap={'wrap'} w={'100%'}>
-           <Box  w={{base:'100%',lg:'65%',xl:'69%'}}  mt={4}  >
+           <Box  w={{base:'100%',lg:'65%',xl:'60%'}}  mt={4}  >
             {children}
             </Box>
-            <Box   pos={'relative'} w={{base:'100%',lg:'30%',xl:'30%'}} h={'100vh'}  >
+            <Box   pos={'relative'} w={{base:'none',lg:'30%',xl:'30%'}} h={'100vh'}  >
                 <Box position={'fixed'} >
                     <Profile />
                     <BoxSuggest/>

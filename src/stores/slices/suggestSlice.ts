@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import  {IThread}  from "../../interface/thread"
-import { API } from "../../libs/api"
 import { IUser } from "../../interface/user"
+import { API } from "../../libs/api"
 
 export const fetchUsers = createAsyncThunk(
     'users/fetchUsers',

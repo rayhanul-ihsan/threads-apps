@@ -18,7 +18,7 @@ export const fetchFollow = createAsyncThunk(
   }
 );
 interface followState {
-  data: {
+  data: { 
     followers: IFollow[];
     followings: IFollow[];
   };
@@ -29,7 +29,7 @@ const initialState: followState = {
   data: {
     followers: [],
     followings: [],
-  }, 
+  },  
   isLoading: false,
   isError: false,
 };

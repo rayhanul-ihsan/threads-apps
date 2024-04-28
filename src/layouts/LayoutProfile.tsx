@@ -1,10 +1,8 @@
+import { Box, Flex } from '@chakra-ui/react'
 import React from 'react'
 import Footer from '../components/Footer'
-import Suggest from '../features/suggests/components/SuggestComp'
-import SideBar from '../components/SideBar'
-import Profile from '../features/profile/components/Profile'
-import { Box, Flex } from '@chakra-ui/react'
 import NavbarComp from '../components/NavbarComp'
+import SideBar from '../components/SideBar'
 import BoxSuggest from '../features/suggests/components/BoxSuggest'
 
 interface LayoutProp {
@@ -20,7 +18,7 @@ const LayoutProfile = ({children}: LayoutProp) => {
                 <SideBar/>
             </Box>
            <Flex flexWrap={'wrap'} w={'100%'}>
-           <Box  w={{base:'100%',lg:'65%',xl:'69%'}}  mt={4}  >
+           <Box  w={{base:'100%',lg:'65%',xl:'60%'}}  mt={4}  >
             {children}
             </Box>
             <Box position={'relative'} display={{base:'none',lg:'block',xl:'block'}}  w={{base:'100%',lg:'30%',xl:'30%'}}  mt={4} >

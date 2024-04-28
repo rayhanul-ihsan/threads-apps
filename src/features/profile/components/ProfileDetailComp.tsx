@@ -65,7 +65,7 @@ const ProfileDetailComp: React.FC = () => {
           _hover={{ bg: "#E5E5E5" }}
           mx={1}
           mb={2}
-          h="328px"
+          h="300px"
           bg={"transparent"}
         >
           <Text fontWeight="500" my={2} mx={4}>

@@ -27,7 +27,7 @@ function App() {
     if (token) {
       return <Navigate to={"/"} />;
     } else {
-      return <Outlet />;
+      return <Outlet />; 
     }
   }
 
