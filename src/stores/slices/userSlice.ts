@@ -3,7 +3,7 @@ import { IUser } from "../../interface/user";
 
 const initialUserState: { user: IUser[] } = { user: [] }; 
 
-export const userSlice = createSlice({
+export const userSlice = createSlice({ 
   name: "user",
   initialState: initialUserState, 
   reducers: {

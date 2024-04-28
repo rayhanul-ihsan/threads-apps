@@ -6,31 +6,17 @@ import {
   useAppSelector,
 } from "../../../stores/types/rootState";
 import FollowCard from "../../follows/components/FollowCard";
+import { userSlice } from "../../../stores/slices/userSlice";
 
 const BoxSuggest: React.FC = () => {
-  const [visibleFollowers, setVisibleFollowers] = React.useState<number>(3);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const getSuggest = useAppSelector((state) => state.follow);
   const dispatch = useAppDispatch();
   const auth = useAppSelector((state) => state.auth.id);
 
   useEffect(() => {
     dispatch(fetchFollow());
+    // dispatch(userSlice.actions.GET_USERS({}));
   }, [auth, dispatch]);
-
-  // Handle scrolling event
-  const handleScroll = (e: React.UIEvent<Element>) => {
-    const bottom =
-      e.currentTarget.scrollHeight - e.currentTarget.scrollTop ===
-      e.currentTarget.clientHeight;
-    if (bottom && !isLoading) {
-      setIsLoading(true);
-      setTimeout(() => {
-        setVisibleFollowers((prevCount) => prevCount + 3);
-        setIsLoading(false);
-      }, 1000); // Simulate loading delay
-    }
-  };
 
   return (
     <>
@@ -39,19 +25,21 @@ const BoxSuggest: React.FC = () => {
         borderRadius="20px"
         w="400px"
         bg={"#E5E5E5"}
+        h={"260px"}
       >
         <Heading fontSize="15px" position={"sticky"} m={2}>
           Suggested for you
         </Heading>
         {/* {getSuggest?.isLoading && <div>Loading...</div>} */}
         <Box
-          maxHeight="200px"
+          maxHeight="220px"
           mx={"2"}
           borderRadius="20px"
           w="380px"
           bg={"#E5E5E5"}
           overflowY="scroll"
           h={250}
+          pb={2}
         >
           {getSuggest.data.followers.map((follower, index) => (
             <FollowCard

@@ -1,27 +1,18 @@
 import {
-  Avatar,
-  Box,
-  Button,
   Card,
-  Flex,
-  Heading,
   Input,
   InputGroup,
-  InputLeftElement,
-  Text,
+  InputLeftElement
 } from "@chakra-ui/react";
-import { FaUser } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
-import { useSearch } from "../hooks/useSearch";
 import React, { useEffect, useState } from "react";
-import { IFollow } from "../../../interface/user";
-import { useFollow } from "../../follows/hooks/useFollow";
+import { FaUser } from "react-icons/fa6";
+import { fetchFollow } from "../../../stores/slices/followSlice";
 import {
   useAppDispatch,
   useAppSelector,
 } from "../../../stores/types/rootState";
-import { fetchFollow } from "../../../stores/slices/followSlice";
 import FollowCard from "../../follows/components/FollowCard";
+import { useSearch } from "../hooks/useSearch";
 
 export default function Search() {
   const { filteredUsers, searchUsers } = useSearch();
@@ -40,10 +31,6 @@ export default function Search() {
 
   const getFollow = useAppSelector((state) => state.follow);
 
-  // const istrue =
-  //   props.following && props.following.some((i) => i.id === props.id);
-  // const [foll, setFoll] = React.useState<boolean>(istrue || false);
-  // const { handleFollow, handleUnfollow } = useFollow();
   const dispatch = useAppDispatch();
   const auth = useAppSelector((state) => state.auth.id);
   useEffect(() => {
